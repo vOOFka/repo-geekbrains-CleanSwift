@@ -26,6 +26,7 @@
 		F49AAFD927BC25DE00BCB9EF /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AAFD827BC25DE00BCB9EF /* AuthRequestFactory.swift */; };
 		F49AAFDB27BC25EA00BCB9EF /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AAFDA27BC25EA00BCB9EF /* RequestFactory.swift */; };
 		F49AAFDD27BC25F600BCB9EF /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AAFDC27BC25F600BCB9EF /* Auth.swift */; };
+		F49AAFDF27BC3D9900BCB9EF /* LogoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49AAFDE27BC3D9900BCB9EF /* LogoutResult.swift */; };
 		F4F62B9927B7BDC400AA791B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F62B9827B7BDC400AA791B /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		F49AAFD827BC25DE00BCB9EF /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
 		F49AAFDA27BC25EA00BCB9EF /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		F49AAFDC27BC25F600BCB9EF /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		F49AAFDE27BC3D9900BCB9EF /* LogoutResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResult.swift; sourceTree = "<group>"; };
 		F4F62B9827B7BDC400AA791B /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = "../../../Documents/repo-geekbrains-CleanSwift/shopVS/shopVS/SceneDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				F49AAFD627BC25A700BCB9EF /* LoginResult.swift */,
+				F49AAFDE27BC3D9900BCB9EF /* LogoutResult.swift */,
 				F49AAFD427BC259700BCB9EF /* User.swift */,
 			);
 			path = Entity;
@@ -370,6 +373,7 @@
 			files = (
 				F49AAFDD27BC25F600BCB9EF /* Auth.swift in Sources */,
 				F49AAFDB27BC25EA00BCB9EF /* RequestFactory.swift in Sources */,
+				F49AAFDF27BC3D9900BCB9EF /* LogoutResult.swift in Sources */,
 				F49AAFD927BC25DE00BCB9EF /* AuthRequestFactory.swift in Sources */,
 				F49AAFD327BC258400BCB9EF /* RequestRouter.swift in Sources */,
 				F49AAFD127BC257100BCB9EF /* AbstractRequestFactory.swift in Sources */,
