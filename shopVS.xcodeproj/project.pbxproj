@@ -15,7 +15,7 @@
 		F41B187A27B79BB90089824E /* shopVSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B187927B79BB90089824E /* shopVSTests.swift */; };
 		F41B188427B79BB90089824E /* shopVSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B188327B79BB90089824E /* shopVSUITests.swift */; };
 		F41B188627B79BB90089824E /* shopVSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B188527B79BB90089824E /* shopVSUITestsLaunchTests.swift */; };
-		F4F62B9927B7BDC400AA791B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F62B9827B7BDC400AA791B /* SceneDelegate.swift */; };
+		F4250C8127BD828100B9C3EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4250C8027BD828100B9C3EA /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		F41B187F27B79BB90089824E /* shopVSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shopVSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41B188327B79BB90089824E /* shopVSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopVSUITests.swift; sourceTree = "<group>"; };
 		F41B188527B79BB90089824E /* shopVSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopVSUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F4F62B9827B7BDC400AA791B /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = "../../../Documents/repo-geekbrains-CleanSwift/shopVS/shopVS/SceneDelegate.swift"; sourceTree = "<group>"; };
+		F4250C8027BD828100B9C3EA /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				F41B186227B79BB60089824E /* AppDelegate.swift */,
-				F4F62B9827B7BDC400AA791B /* SceneDelegate.swift */,
+				F4250C8027BD828100B9C3EA /* SceneDelegate.swift */,
 				F41B189527B7B8A50089824E /* Assembly */,
 				F41B189327B7B8850089824E /* BusinessLogic */,
 				F41B189427B7B8980089824E /* Entity */,
@@ -324,7 +324,7 @@
 			files = (
 				F41B186727B79BB60089824E /* ViewController.swift in Sources */,
 				F41B186327B79BB60089824E /* AppDelegate.swift in Sources */,
-				F4F62B9927B7BDC400AA791B /* SceneDelegate.swift in Sources */,
+				F4250C8127BD828100B9C3EA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = shopVS/Info.plist;
+				INFOPLIST_FILE = shopVS/Environments/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -532,7 +532,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = shopVS/Info.plist;
+				INFOPLIST_FILE = shopVS/Environments/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
