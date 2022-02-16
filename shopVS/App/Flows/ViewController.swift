@@ -15,7 +15,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //authRequest()
-        logoutRequest()
+        //logoutRequest()
+        //signUpRequest()
     }
     
     private func authRequest() {
@@ -43,5 +44,22 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    private func signUpRequest() {
+        let signup = requestFactory.makeProfileRequestFatory()
+        
+        let newUser = User(login: "exit551", password: "SDe#$asdA", email: "exit551@ya.ru")
+        
+        signup.signUp(user: newUser) { response in
+            switch response.result {
+            case .success(let signup):
+                print(newUser)
+                print(signup)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }
 
