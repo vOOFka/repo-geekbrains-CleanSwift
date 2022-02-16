@@ -10,13 +10,15 @@ import UIKit
 class ViewController: UIViewController {
     
     private let requestFactory = RequestFactory()
+    private let currentUser = User(login: "exit551", password: "SDe#$asdA", email: "exit551@ya.ru")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //authRequest()
+        authRequest()
         //logoutRequest()
         //signUpRequest()
+        //editProfileRequest(currentUser)
     }
     
     private func authRequest() {
@@ -46,15 +48,29 @@ class ViewController: UIViewController {
     }
     
     private func signUpRequest() {
-        let signup = requestFactory.makeProfileRequestFatory()
+        let profile = requestFactory.makeProfileRequestFatory()
         
         let newUser = User(login: "exit551", password: "SDe#$asdA", email: "exit551@ya.ru")
         
-        signup.signUp(user: newUser) { response in
+        profile.signUp(user: newUser) { response in
             switch response.result {
-            case .success(let signup):
+            case .success(let signUp):
                 print(newUser)
-                print(signup)
+                print(signUp)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func editProfileRequest(_ someUser: User) {
+        let profile = requestFactory.makeProfileRequestFatory()
+  
+        profile.editProfile(user: someUser) { response in
+            switch response.result {
+            case .success(let editProfile):
+                print(someUser)
+                print(editProfile)
             case .failure(let error):
                 print(error.localizedDescription)
             }

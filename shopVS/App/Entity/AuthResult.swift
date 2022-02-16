@@ -1,5 +1,5 @@
 //
-//  LogoutResult.swift
+//  AuthResult.swift
 //  shopVS
 //
 //  Created by Home on 15.02.2022.
@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct LogoutResult: Codable {
+struct AuthResult: Codable {
     let result: Int
+    let user: User?
 }
