@@ -25,13 +25,13 @@ class Profile: AbstractRequestFactory {
 }
 
 extension Profile: ProfileRequestFactory {
-    func signUp(user: User, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void) {
-        let requestModel = SignUp(baseUrl: baseUrl, user: user)
+    func signUp(userProfile: UserProfile, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void) {
+        let requestModel = SignUp(baseUrl: baseUrl, userProfile: userProfile)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func editProfile(user: User, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void) {
-        let requestModel = EditProfile(baseUrl: baseUrl, user: user)
+    func editProfile(userProfile: UserProfile, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void) {
+        let requestModel = EditProfile(baseUrl: baseUrl, userProfile: userProfile)
         self.request(request: requestModel, completionHandler: completionHandler)
     }    
 }
@@ -42,14 +42,14 @@ extension Profile {
         let method: HTTPMethod = .get
         let path: String = "registerUser.json"
         
-        let user: User
+        let userProfile: UserProfile
         
         var parameters: Parameters? {
             return [
-                "id_user" : user.id,
-                "username": user.login,
-                "password": user.password,
-                "email"   : user.email
+                "id_user" : userProfile.user.id,
+                "username": userProfile.user.login,
+                "password": userProfile.password,
+                "email"   : userProfile.email
             ]
         }
     }
@@ -59,17 +59,17 @@ extension Profile {
         let method: HTTPMethod = .get
         let path: String = "changeUserData.json"
         
-        let user: User
+        let userProfile: UserProfile
         
         var parameters: Parameters? {
             return [
-                "id_user" : user.id,
-                "username": user.login,
-                "password": user.password,
-                "email"   : user.email,
-                "gender"  : user.gender,
-                "credit_card" : user.creditCard,
-                "bio"     : user.gender
+                "id_user" : userProfile.user.id,
+                "username": userProfile.user.login,
+                "password": userProfile.password,
+                "email"   : userProfile.email,
+                "gender"  : userProfile.gender,
+                "credit_card" : userProfile.creditCard,
+                "bio"     : userProfile.gender
             ]
         }
     }

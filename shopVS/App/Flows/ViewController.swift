@@ -10,15 +10,17 @@ import UIKit
 class ViewController: UIViewController {
     
     private let requestFactory = RequestFactory()
-    private let currentUser = User(login: "exit551", password: "SDe#$asdA", email: "exit551@ya.ru")
+    private let currentUserProfile = UserProfile(user: User(login: "exit551", name: "Vladimir", lastname: "Sirel"),
+                                                 password: "asdasfa",
+                                                 email: "exit551@ya.ru")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         authRequest()
-        //logoutRequest()
-        //signUpRequest()
-        //editProfileRequest(currentUser)
+        logoutRequest()
+        signUpRequest()
+        editProfileRequest(currentUserProfile)
     }
     
     private func authRequest() {
@@ -50,12 +52,13 @@ class ViewController: UIViewController {
     private func signUpRequest() {
         let profile = requestFactory.makeProfileRequestFatory()
         
-        let newUser = User(login: "exit551", password: "SDe#$asdA", email: "exit551@ya.ru")
+        let newUser = User(login: "exit551", name: "Vladimir", lastname: "Sirel")
+        let newProfile = UserProfile(user: newUser, password: "dasd123asd", email: "exit551@ya.ru")
         
-        profile.signUp(user: newUser) { response in
+        profile.signUp(userProfile: newProfile) { response in
             switch response.result {
             case .success(let signUp):
-                print(newUser)
+                print(newProfile)
                 print(signUp)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -63,19 +66,18 @@ class ViewController: UIViewController {
         }
     }
     
-    private func editProfileRequest(_ someUser: User) {
+    private func editProfileRequest(_ someUserProfile: UserProfile) {
         let profile = requestFactory.makeProfileRequestFatory()
   
-        profile.editProfile(user: someUser) { response in
+        profile.editProfile(userProfile: someUserProfile) { response in
             switch response.result {
             case .success(let editProfile):
-                print(someUser)
+                print(someUserProfile)
                 print(editProfile)
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
-    
 }
 

@@ -9,6 +9,6 @@ import Foundation
 import Alamofire
 
 protocol ProfileRequestFactory {
-    func signUp(user: User, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void)
-    func editProfile(user: User, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void)
+    func signUp(userProfile: UserProfile, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void)
+    func editProfile(userProfile: UserProfile, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void)
 }
