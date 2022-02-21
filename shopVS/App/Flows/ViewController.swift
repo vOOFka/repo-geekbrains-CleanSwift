@@ -17,10 +17,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        authRequest()
-        logoutRequest()
-        signUpRequest()
-        editProfileRequest(currentUserProfile)
+        //authRequest()
+        //logoutRequest()
+        //signUpRequest()
+        //editProfileRequest(currentUserProfile)
+        //getGoodsRequest(pageNumber: 1, categoryId: 1)
+        getProductRequest(productId: 123)
     }
     
     private func authRequest() {
@@ -68,12 +70,38 @@ class ViewController: UIViewController {
     
     private func editProfileRequest(_ someUserProfile: UserProfile) {
         let profile = requestFactory.makeProfileRequestFatory()
-  
+        
         profile.editProfile(userProfile: someUserProfile) { response in
             switch response.result {
             case .success(let editProfile):
                 print(someUserProfile)
                 print(editProfile)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func getGoodsRequest(pageNumber: Int, categoryId: Int) {
+        let goods = requestFactory.makeGoodsRequestFatory()
+        
+        goods.getCatalogData(pageNumber: pageNumber, categoryId: categoryId) { response in
+            switch response.result {
+            case .success(let goods):
+                print(goods)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func getProductRequest(productId: Int) {
+        let goods = requestFactory.makeGoodsRequestFatory()
+        
+        goods.getProduct(productId: productId) { response in
+            switch response.result {
+            case .success(let product):
+                print(product)
             case .failure(let error):
                 print(error.localizedDescription)
             }
