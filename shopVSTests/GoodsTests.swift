@@ -1,5 +1,5 @@
 //
-//  ProfileTests.swift
+//  GoodsTests.swift
 //  shopVSTests
 //
 //  Created by Home on 23.02.2022.
@@ -9,39 +9,34 @@ import XCTest
 import Alamofire
 @testable import shopVS
 
-class ProfileTests: XCTestCase {
-    let exectation = XCTestExpectation(description: "ProfileTests")
+class GoodsTests: XCTestCase {
+    let exectation = XCTestExpectation(description: "GoodsTests")
     var errorParser: ErrorParserStub!
     var requestFactory: RequestFactory!
     var timeout: TimeInterval = 5.0
-    var userProfile: UserProfile!
     
     override func setUp() {
         super.setUp()
         errorParser = ErrorParserStub()
         requestFactory = RequestFactory()
-        userProfile = UserProfile(user: User(login: "exit551", name: "Vladimir", lastname: "Sirel"),
-                                                                       password: "asdasfa",
-                                                                       email: "exit551@ya.ru")
     }
     
     override func tearDown() {
         super.tearDown()
         requestFactory = nil
         errorParser = nil
-        userProfile = nil
     }
     
-    func testSignUp() {
-        let profile = requestFactory.makeProfileRequestFatory()
+    func testGetCatalogData() {
+        let goods = requestFactory.makeGoodsRequestFatory()
         
-        profile.signUp(userProfile: userProfile) { [weak self] (response: AFDataResponse<ProfileResult>) in
+        goods.getCatalogData(pageNumber: 1, categoryId: 123) { [weak self] (response: AFDataResponse<CatalogResult>) in
             switch response.result {
-            case .success(let profileResult):
-                if profileResult.result == 1 {
+            case .success(let catalogResult):
+                if !catalogResult.isEmpty {
                     self?.exectation.fulfill()
                 } else {
-                    XCTFail("Something wrong in SignUp")
+                    XCTFail("Something wrong in getCatalogData")
                 }
                 break
             case .failure(let error):
@@ -52,16 +47,16 @@ class ProfileTests: XCTestCase {
         wait(for: [exectation], timeout: timeout)
     }
     
-    func testEditProfile() {
-        let profile = requestFactory.makeProfileRequestFatory()
+    func testGetProduct() {
+        let goods = requestFactory.makeGoodsRequestFatory()
         
-        profile.editProfile(userProfile: userProfile) { [weak self] (response: AFDataResponse<ProfileResult>) in
+        goods.getProduct(productId: 123) { [weak self] (response: AFDataResponse<ProductResult>) in
             switch response.result {
-            case .success(let profileResult):
-                if profileResult.result == 1 {
+            case .success(let productResult):
+                if productResult.result == 1 {
                     self?.exectation.fulfill()
                 } else {
-                    XCTFail("Something wrong in EditProfile")
+                    XCTFail("Something wrong in getProduct")
                 }
                 break
             case .failure(let error):
@@ -71,5 +66,4 @@ class ProfileTests: XCTestCase {
         }
         wait(for: [exectation], timeout: timeout)
     }
-
 }
