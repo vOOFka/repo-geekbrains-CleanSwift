@@ -9,14 +9,9 @@ import XCTest
 import Alamofire
 @testable import shopVS
 
-enum AuthApiErrorStub: Error {
-    case fatalError
-}
-
 class AuthTests: XCTestCase {
     let exectation = XCTestExpectation(description: "AuthTests")
     var errorParser: ErrorParserStub!
-    let sessionManager = Session(configuration: URLSessionConfiguration.default)
     var requestFactory: RequestFactory!
     var timeout: TimeInterval = 5.0
     
@@ -31,6 +26,7 @@ class AuthTests: XCTestCase {
         requestFactory = nil
         errorParser = nil
     }
+    
     func testLogin() {
         let auth = requestFactory.makeAuthRequestFatory()
         

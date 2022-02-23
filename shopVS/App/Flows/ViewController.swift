@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         //signUpRequest()
         //editProfileRequest(currentUserProfile)
         //getGoodsRequest(pageNumber: 1, categoryId: 1)
-        getProductRequest(productId: 123)
+        //getProductRequest(productId: 123)
     }
     
     private func authRequest() {
