@@ -7,4 +7,9 @@
 
 import Foundation
 
-typealias CatalogResult = [Product]
+struct CatalogResult: Codable {
+    var result: Int
+    var errorMessage: String?
+    let pageNumber: Int?
+    let goods: [Product]?
+}
