@@ -24,8 +24,8 @@ class ViewController: UIViewController {
         //logoutRequest()
         //signUpRequest()
         //editProfileRequest(currentUserProfile)
-        //getGoodsRequest(pageNumber: 1, categoryId: 123)
-        //getProductRequest(productId: 111)
+        getGoodsRequest(pageNumber: 1, categoryId: 123)
+        getProductRequest(productId: 111)
     }
     
     private func authRequest() {
