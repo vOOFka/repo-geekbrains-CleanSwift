@@ -12,7 +12,7 @@ class Profile: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "http://127.0.0.1:8080")!
     
     init(
         errorParser: AbstractErrorParser,
@@ -39,37 +39,54 @@ extension Profile: ProfileRequestFactory {
 extension Profile {
     struct SignUp: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "registerUser.json"
+        let method: HTTPMethod = .post
+        let path: String = "signup"
+        let encoding: RequestRouterEncoding = .json
         
         let userProfile: UserProfile
         
         var parameters: Parameters? {
             return [
-                "id_user" : userProfile.user.id,
-                "username": userProfile.user.login,
-                "password": userProfile.password,
-                "email"   : userProfile.email
+                "userProfile" : [
+                    "user" : [
+                        "id": userProfile.user.id,
+                        "login": userProfile.user.login,
+                        "password": userProfile.user.password
+                    ],
+                    "name" : userProfile.name,
+                    "lastname": userProfile.lastname,
+                    "email": userProfile.email,
+                    "gender": userProfile.gender,
+                    "creditCard": userProfile.creditCard,
+                    "bio": userProfile.bio
+                ]
             ]
         }
     }
     
     struct EditProfile: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "changeUserData.json"
+        let method: HTTPMethod = .post
+        let path: String = "editprofile"
+        let encoding: RequestRouterEncoding = .json
         
         let userProfile: UserProfile
         
         var parameters: Parameters? {
             return [
-                "id_user" : userProfile.user.id,
-                "username": userProfile.user.login,
-                "password": userProfile.password,
-                "email"   : userProfile.email,
-                "gender"  : userProfile.gender,
-                "credit_card" : userProfile.creditCard,
-                "bio"     : userProfile.gender
+                "userProfile" : [
+                    "user" : [
+                        "id": userProfile.user.id,
+                        "login": userProfile.user.login,
+                        "password": userProfile.user.password
+                    ],
+                    "name" : userProfile.name,
+                    "lastname": userProfile.lastname,
+                    "email": userProfile.email,
+                    "gender": userProfile.gender,
+                    "creditCard": userProfile.creditCard,
+                    "bio": userProfile.bio
+                ]
             ]
         }
     }

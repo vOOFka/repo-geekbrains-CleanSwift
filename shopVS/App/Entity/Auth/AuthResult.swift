@@ -8,6 +8,8 @@
 import Foundation
 
 struct AuthResult: Codable {
-    let result: Int
-    let user: User?
+    var result: Int
+    var user: User?
+    var userMessage: String?
+    var errorMessage: String?
 }

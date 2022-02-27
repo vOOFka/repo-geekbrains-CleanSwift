@@ -10,10 +10,13 @@ import UIKit
 class ViewController: UIViewController {
     
     private let requestFactory = RequestFactory()
-    private let currentUserProfile = UserProfile(user: User(login: "exit551", name: "Vladimir", lastname: "Sirel"),
-                                                 password: "asdasfa",
-                                                 email: "exit551@ya.ru")
-    
+    private let currentUserProfile = UserProfile(user: User(id: 0140828713151909195,
+                                                            login: "exit551",
+                                                            password: "asdasfa2321"),
+                                                 name: "Vladimir",
+                                                 lastname: "Sirel",
+                                                 email: "exit551@ya.ru",
+                                                 creditCard: "1234-5678-9101-0000")
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,14 +24,14 @@ class ViewController: UIViewController {
         //logoutRequest()
         //signUpRequest()
         //editProfileRequest(currentUserProfile)
-        getGoodsRequest(pageNumber: 1, categoryId: 123)
-        getProductRequest(productId: 111)
+        //getGoodsRequest(pageNumber: 1, categoryId: 123)
+        //getProductRequest(productId: 111)
     }
     
     private func authRequest() {
         let auth = requestFactory.makeAuthRequestFatory()
         
-        auth.login(userName: "Somebody", password: "mypassword") { response in
+        auth.login(userName: "vOOFka", password: "qwerty123") { response in
             switch response.result {
             case .success(let login):
                 print(login)
@@ -41,7 +44,7 @@ class ViewController: UIViewController {
     private func logoutRequest() {
         let auth = requestFactory.makeAuthRequestFatory()
         
-        auth.logout(userId: 123) { response in
+        auth.logout(userId: 2361194105334859860) { response in
             switch response.result {
             case .success(let logout):
                 print(logout)
@@ -54,8 +57,8 @@ class ViewController: UIViewController {
     private func signUpRequest() {
         let profile = requestFactory.makeProfileRequestFatory()
         
-        let newUser = User(login: "exit551", name: "Vladimir", lastname: "Sirel")
-        let newProfile = UserProfile(user: newUser, password: "dasd123asd", email: "exit551@ya.ru")
+        let newUser = User(id: 0, login: "exit551", password: "dasd123asd")
+        let newProfile = UserProfile(user: newUser, name: "Vladimir", lastname: "Sirel" , email: "exit551@ya.ru", creditCard: "1234-5678-9101-1121")
         
         profile.signUp(userProfile: newProfile) { response in
             switch response.result {
