@@ -10,22 +10,22 @@ import UIKit
 class ViewController: UIViewController {
     
     private let requestFactory = RequestFactory()
-    private let currentUserProfile = UserProfile(user: User(id: 0140828713151909195,
-                                                            login: "exit551",
-                                                            password: "asdasfa2321"),
-                                                 name: "Vladimir",
-                                                 lastname: "Sirel",
-                                                 email: "exit551@ya.ru",
-                                                 creditCard: "1234-5678-9101-0000")
+    private let currentUser = User(id: 0140828713151909195,
+                                   login: "exit551",
+                                   password: "asdasfa2321",
+                                   userProfile: UserProfile(name: "Vladimir",
+                                                            lastname: "Sirel",
+                                                            email: "exit551@ya.ru",
+                                                            creditCard: "1234-5678-9101-0000"))
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //authRequest()
         //logoutRequest()
         //signUpRequest()
-        //editProfileRequest(currentUserProfile)
-        getGoodsRequest(pageNumber: 1, categoryId: 123)
-        getProductRequest(productId: 111)
+        //editProfileRequest(currentUser)
+        //getGoodsRequest(pageNumber: 1, categoryId: 123)
+        //getProductRequest(productId: 111)
     }
     
     private func authRequest() {
@@ -57,13 +57,14 @@ class ViewController: UIViewController {
     private func signUpRequest() {
         let profile = requestFactory.makeProfileRequestFatory()
         
-        let newUser = User(id: 0, login: "exit551", password: "dasd123asd")
-        let newProfile = UserProfile(user: newUser, name: "Vladimir", lastname: "Sirel" , email: "exit551@ya.ru", creditCard: "1234-5678-9101-1121")
+        let newProfile = UserProfile(name: "Vladimir", lastname: "Sirel" , email: "exit551@ya.ru", creditCard: "1234-5678-9101-1121")
+        let newUser = User(id: 0, login: "exit551", password: "dasd123asd", userProfile: newProfile)
         
-        profile.signUp(userProfile: newProfile) { response in
+        
+        profile.signUp(user: newUser) { response in
             switch response.result {
             case .success(let signUp):
-                print(newProfile)
+                print(newUser)
                 print(signUp)
             case .failure(let error):
                 print(error.localizedDescription)
@@ -71,14 +72,14 @@ class ViewController: UIViewController {
         }
     }
     
-    private func editProfileRequest(_ someUserProfile: UserProfile) {
+    private func editProfileRequest(_ someUser: User) {
         let profile = requestFactory.makeProfileRequestFatory()
         
-        profile.editProfile(userProfile: someUserProfile) { response in
+        profile.editProfile(user: someUser) { response in
             switch response.result {
-            case .success(let editProfile):
-                print(someUserProfile)
-                print(editProfile)
+            case .success(let editUser):
+                print(someUser)
+                print(editUser)
             case .failure(let error):
                 print(error.localizedDescription)
             }
