@@ -28,7 +28,7 @@ class AuthTests: XCTestCase {
     }
     
     func testLogin() {
-        let auth = requestFactory.makeAuthRequestFatory()
+        let auth = requestFactory.makeAuthRequestFactory()
         
         auth.login(userName: "vOOFka", password: "qwerty123") { [weak self] (response: AFDataResponse<AuthResult>) in
             switch response.result {
@@ -48,7 +48,7 @@ class AuthTests: XCTestCase {
     }
     
     func testLogout() {
-        let auth = requestFactory.makeAuthRequestFatory()
+        let auth = requestFactory.makeAuthRequestFactory()
         
         auth.logout(userId: 123) { [weak self] (response: AFDataResponse<AuthResult>) in
             switch response.result {

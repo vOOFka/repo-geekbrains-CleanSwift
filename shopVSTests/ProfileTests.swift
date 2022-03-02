@@ -34,7 +34,7 @@ class ProfileTests: XCTestCase {
     }
     
     func testSignUp() {
-        let profile = requestFactory.makeProfileRequestFatory()
+        let profile = requestFactory.makeProfileRequestFactory()
         
         profile.signUp(user: user) { [weak self] (response: AFDataResponse<ProfileResult>) in
             switch response.result {
@@ -54,7 +54,7 @@ class ProfileTests: XCTestCase {
     }
     
     func testEditProfile() {
-        let profile = requestFactory.makeProfileRequestFatory()
+        let profile = requestFactory.makeProfileRequestFactory()
         
         profile.editProfile(user: existUserForEdit) { [weak self] (response: AFDataResponse<ProfileResult>) in
             switch response.result {
