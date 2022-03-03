@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "E86B9CF9-7060-4F95-BE3F-113DED4D5360",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:shopVS.xcodeproj",
+        "identifier" : "F41B187427B79BB90089824E",
+        "name" : "shopVSTests"
+      }
+    }
+  ],
+  "version" : 1
+}
