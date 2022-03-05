@@ -26,7 +26,9 @@ class ViewController: UIViewController {
         //editProfileRequest(currentUser)
         //getGoodsRequest(pageNumber: 1, categoryId: 123)
         //getProductRequest(productId: 111)
-        getFeedbacksRequest(pageNumber: 1, productId: 111)
+        getFeedbacksRequest(pageNumber: 11, productId: 111)
+        //addFeedbackRequest(productId: 111, newFeedback: Feedback(id: 0, userId: 23525, comment: "Example comment..."))
+        //removeFeedbackRequest(productId: 111, feedbackId: 444)
     }
     
     private func authRequest() {
@@ -117,6 +119,32 @@ class ViewController: UIViewController {
         let feedbacks = requestFactory.makeFeedbacksRequestFactory()
         
         feedbacks.getFeedbacks(pageNumber: pageNumber, productId: productId) { response in
+            switch response.result {
+            case .success(let feedbacks):
+                print(feedbacks)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func addFeedbackRequest(productId: Int, newFeedback: Feedback) {
+        let feedbacks = requestFactory.makeFeedbacksRequestFactory()
+        
+        feedbacks.addFeedback(productId: productId, newFeedback: newFeedback) { response in
+            switch response.result {
+            case .success(let feedbacks):
+                print(feedbacks)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func removeFeedbackRequest(productId: Int, feedbackId: Int) {
+        let feedbacks = requestFactory.makeFeedbacksRequestFactory()
+        
+        feedbacks.removeFeedback(productId: productId, feedbackId: feedbackId) { response in
             switch response.result {
             case .success(let feedbacks):
                 print(feedbacks)

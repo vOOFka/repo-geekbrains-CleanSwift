@@ -32,22 +32,14 @@ extension Feedbacks: FeedbacksRequestFactory {
     }
     
     func addFeedback(productId: Int, newFeedback: Feedback, completionHandler: @escaping (AFDataResponse<FeedbacksResult>) -> Void) {
-        
+        let requestModel = AddFeedback(baseUrl: baseUrl, productId: productId, newFeedback: newFeedback)
+        self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func removeFeedback(productId: Int, completionHandler: @escaping (AFDataResponse<FeedbacksResult>) -> Void) {
-        
+    func removeFeedback(productId: Int, feedbackId: Int, completionHandler: @escaping (AFDataResponse<FeedbacksResult>) -> Void) {
+        let requestModel = RemoveFeedback(baseUrl: baseUrl, productId: productId, feedbackId: feedbackId)
+        self.request(request: requestModel, completionHandler: completionHandler)
     }
-    
-//    func getCatalogData(pageNumber: Int, categoryId: Int, completionHandler: @escaping (AFDataResponse<CatalogResult>) -> Void) {
-//        let requestModel = GetCatalog(baseUrl: baseUrl, pageNumber: pageNumber, categoryId: categoryId)
-//        self.request(request: requestModel, completionHandler: completionHandler)
-//    }
-//
-//    func getProduct(productId: Int, completionHandler: @escaping (AFDataResponse<ProductResult>) -> Void) {
-//        let requestModel = GetProduct(baseUrl: baseUrl, productId: productId)
-//        self.request(request: requestModel, completionHandler: completionHandler)
-//    }
 }
 
 extension Feedbacks {
@@ -66,18 +58,41 @@ extension Feedbacks {
             ]
         }
     }
-//
-//    struct GetProduct: RequestRouter {
-//        let baseUrl: URL
-//        let method: HTTPMethod = .post
-//        let path: String = "productbyid"
-//
-//        let productId: Int
-//
-//        var parameters: Parameters? {
-//            return [
-//                "productId" : productId
-//            ]
-//        }
-//    }
+
+    struct AddFeedback: RequestRouter {
+        let baseUrl: URL
+        let method: HTTPMethod = .post
+        let path: String = "addfeedback"
+        let encoding: RequestRouterEncoding = .json
+
+        let productId: Int
+        let newFeedback: Feedback
+
+        var parameters: Parameters? {
+            return [
+                "productId" : productId,
+                "newFeedback" : [
+                    "id" : newFeedback.id,
+                    "userId" : newFeedback.userId,
+                    "comment" : newFeedback.comment
+                ]
+            ]
+        }
+    }
+    
+    struct RemoveFeedback: RequestRouter {
+        let baseUrl: URL
+        let method: HTTPMethod = .post
+        let path: String = "removefeedback"
+
+        let productId: Int
+        let feedbackId: Int
+
+        var parameters: Parameters? {
+            return [
+                "productId" : productId,
+                "feedbackId" : feedbackId
+            ]
+        }
+    }
 }
