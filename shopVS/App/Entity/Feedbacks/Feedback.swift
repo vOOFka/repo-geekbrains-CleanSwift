@@ -12,3 +12,9 @@ struct Feedback: Codable {
     let userId: Int
     let comment: String
 }
+
+extension Feedback: Equatable {
+    static func == (lhs: Feedback, rhs: Feedback) -> Bool {
+        return lhs.userId == rhs.userId && lhs.comment == rhs.comment
+    }
+}
