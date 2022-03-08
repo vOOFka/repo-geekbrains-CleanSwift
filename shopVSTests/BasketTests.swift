@@ -36,8 +36,8 @@ class BasketTests: XCTestCase {
     
     func testGetFeedbacks() {
         let basket = requestFactory.makeBasketRequestFactory()
-        
-        basket.payBasket(userId: 111) { [weak self] (response: AFDataResponse<BasketResult>) in
+        //Must set exist userId
+        basket.payBasket(userId: 123) { [weak self] (response: AFDataResponse<BasketResult>) in
             switch response.result {
             case .success(let basketResult):
                 if basketResult.result == 0 {
