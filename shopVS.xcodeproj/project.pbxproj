@@ -24,8 +24,13 @@
 		F41B188627B79BB90089824E /* shopVSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B188527B79BB90089824E /* shopVSUITestsLaunchTests.swift */; };
 		F4250C8527BD91D100B9C3EA /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4250C8427BD91D100B9C3EA /* UserProfile.swift */; };
 		F44FC29A27BD6D5700367585 /* ProfileResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FC29927BD6D5700367585 /* ProfileResult.swift */; };
-		F471710827D7501900552884 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710727D7501900552884 /* Basket.swift */; };
+		F471710827D7501900552884 /* UserBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710727D7501900552884 /* UserBasket.swift */; };
 		F471710B27D7599500552884 /* BasketCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710A27D7599500552884 /* BasketCaretaker.swift */; };
+		F471710E27D768C900552884 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710D27D768C900552884 /* Array+Ext.swift */; };
+		F471711027D76D9C00552884 /* BasketRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710F27D76D9C00552884 /* BasketRequestFactory.swift */; };
+		F471711227D7763C00552884 /* BasketResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471711127D7763C00552884 /* BasketResult.swift */; };
+		F471711427D7770E00552884 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471711327D7770E00552884 /* Basket.swift */; };
+		F471711627D77C5F00552884 /* BasketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471711527D77C5F00552884 /* BasketTests.swift */; };
 		F47AB20627D4928500584A9E /* FeedbacksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AB20527D4928500584A9E /* FeedbacksTests.swift */; };
 		F48FA6CA27C6471B00E8C8F3 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA6C927C6471B00E8C8F3 /* ProfileTests.swift */; };
 		F48FA6CC27C64BE200E8C8F3 /* GoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA6CB27C64BE100E8C8F3 /* GoodsTests.swift */; };
@@ -88,8 +93,13 @@
 		F41B188527B79BB90089824E /* shopVSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopVSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F4250C8427BD91D100B9C3EA /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		F44FC29927BD6D5700367585 /* ProfileResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResult.swift; sourceTree = "<group>"; };
-		F471710727D7501900552884 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
+		F471710727D7501900552884 /* UserBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasket.swift; sourceTree = "<group>"; };
 		F471710A27D7599500552884 /* BasketCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCaretaker.swift; sourceTree = "<group>"; };
+		F471710D27D768C900552884 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		F471710F27D76D9C00552884 /* BasketRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRequestFactory.swift; sourceTree = "<group>"; };
+		F471711127D7763C00552884 /* BasketResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketResult.swift; sourceTree = "<group>"; };
+		F471711327D7770E00552884 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
+		F471711527D77C5F00552884 /* BasketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTests.swift; sourceTree = "<group>"; };
 		F47AB20527D4928500584A9E /* FeedbacksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbacksTests.swift; sourceTree = "<group>"; };
 		F48FA6C727C639DB00E8C8F3 /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
 		F48FA6C827C63B5E00E8C8F3 /* UITestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITestPlan.xctestplan; sourceTree = "<group>"; };
@@ -193,6 +203,7 @@
 			children = (
 				F41B189227B7B8790089824E /* App */,
 				F41B189727B7B8C00089824E /* Core */,
+				F471710C27D768A800552884 /* Utils */,
 				F41B189827B7B8CC0089824E /* Resources */,
 				F41B189927B7B8D70089824E /* Environments */,
 			);
@@ -209,6 +220,7 @@
 				F48FA6C927C6471B00E8C8F3 /* ProfileTests.swift */,
 				F48FA6CB27C64BE100E8C8F3 /* GoodsTests.swift */,
 				F47AB20527D4928500584A9E /* FeedbacksTests.swift */,
+				F471711527D77C5F00552884 /* BasketTests.swift */,
 			);
 			path = shopVSTests;
 			sourceTree = "<group>";
@@ -239,9 +251,9 @@
 		F41B189327B7B8850089824E /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
-				F471710927D7597100552884 /* Basket */,
 				F49AAFDA27BC25EA00BCB9EF /* RequestFactory.swift */,
 				F4CFDBBE27BD6799000DA598 /* Auth */,
+				F471710927D7597100552884 /* Basket */,
 				F4DD0AF327D00FA5003EAC2F /* Feedbacks */,
 				F4186C0927C248B5007F5F45 /* Goods */,
 				F4CFDBBF27BD67C6000DA598 /* Profile */,
@@ -305,7 +317,8 @@
 		F471710627D74F3C00552884 /* Basket */ = {
 			isa = PBXGroup;
 			children = (
-				F471710727D7501900552884 /* Basket.swift */,
+				F471710727D7501900552884 /* UserBasket.swift */,
+				F471711127D7763C00552884 /* BasketResult.swift */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -314,8 +327,18 @@
 			isa = PBXGroup;
 			children = (
 				F471710A27D7599500552884 /* BasketCaretaker.swift */,
+				F471710F27D76D9C00552884 /* BasketRequestFactory.swift */,
+				F471711327D7770E00552884 /* Basket.swift */,
 			);
 			path = Basket;
+			sourceTree = "<group>";
+		};
+		F471710C27D768A800552884 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F471710D27D768C900552884 /* Array+Ext.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F49AAFC927BC24DD00BCB9EF /* Network */ = {
@@ -517,18 +540,22 @@
 				F4DD0AFD27D0118B003EAC2F /* Feedback.swift in Sources */,
 				F4DD0AF727D0108B003EAC2F /* Feedbacks.swift in Sources */,
 				F49AAFD927BC25DE00BCB9EF /* AuthRequestFactory.swift in Sources */,
+				F471711027D76D9C00552884 /* BasketRequestFactory.swift in Sources */,
 				F4CFDBBB27BD672B000DA598 /* Profile.swift in Sources */,
 				F4186C0D27C2493F007F5F45 /* GoodsRequestFactory.swift in Sources */,
+				F471710E27D768C900552884 /* Array+Ext.swift in Sources */,
 				F49AAFD327BC258400BCB9EF /* RequestRouter.swift in Sources */,
 				F49AAFD127BC257100BCB9EF /* AbstractRequestFactory.swift in Sources */,
 				F4CFDBC327BD6BA4000DA598 /* SceneDelegate.swift in Sources */,
 				F4186C1127C27BCC007F5F45 /* ProductResult.swift in Sources */,
 				F49AAFD727BC25A700BCB9EF /* AuthResult.swift in Sources */,
+				F471711227D7763C00552884 /* BasketResult.swift in Sources */,
 				F471710B27D7599500552884 /* BasketCaretaker.swift in Sources */,
 				F49AAFCD27BC252200BCB9EF /* ErrorParser.swift in Sources */,
 				F49AAFCF27BC254A00BCB9EF /* ResponseCodable.swift in Sources */,
 				F41B186727B79BB60089824E /* ViewController.swift in Sources */,
 				F4DD0AFB27D01140003EAC2F /* FeedbacksResult.swift in Sources */,
+				F471711427D7770E00552884 /* Basket.swift in Sources */,
 				F4186C0627C225F9007F5F45 /* Product.swift in Sources */,
 				F49AAFD527BC259700BCB9EF /* User.swift in Sources */,
 				F4186C0827C22716007F5F45 /* CatalogResult.swift in Sources */,
@@ -537,7 +564,7 @@
 				F41B186327B79BB60089824E /* AppDelegate.swift in Sources */,
 				F44FC29A27BD6D5700367585 /* ProfileResult.swift in Sources */,
 				F49AAFCB27BC250F00BCB9EF /* AbstractErrorParser.swift in Sources */,
-				F471710827D7501900552884 /* Basket.swift in Sources */,
+				F471710827D7501900552884 /* UserBasket.swift in Sources */,
 				F4186C0B27C24904007F5F45 /* Goods.swift in Sources */,
 				F4250C8527BD91D100B9C3EA /* UserProfile.swift in Sources */,
 			);
@@ -548,6 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47AB20627D4928500584A9E /* FeedbacksTests.swift in Sources */,
+				F471711627D77C5F00552884 /* BasketTests.swift in Sources */,
 				F41B187A27B79BB90089824E /* shopVSTests.swift in Sources */,
 				F48FA6CA27C6471B00E8C8F3 /* ProfileTests.swift in Sources */,
 				F48FA6CC27C64BE200E8C8F3 /* GoodsTests.swift in Sources */,

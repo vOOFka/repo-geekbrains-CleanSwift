@@ -1,12 +1,14 @@
 //
-//  Basket.swift
+//  UserBasket.swift
 //  shopVS
 //
 //  Created by Home on 08.03.2022.
 //
 
-class Basket {
-    static let shared = Basket()
+import Foundation
+
+class UserBasket {
+    static let shared = UserBasket()
     private let basketCaretaker = BasketCaretaker()
     private(set) var products: [Product] = [] {
         didSet {
@@ -34,7 +36,7 @@ class Basket {
         self.totalSumma -= product.price
     }
     
-    func clearScores() {
+    func clearProducts() {
         self.products = []
         self.totalSumma = 0
     }

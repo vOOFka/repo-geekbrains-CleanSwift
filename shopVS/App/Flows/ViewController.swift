@@ -26,9 +26,11 @@ class ViewController: UIViewController {
         //editProfileRequest(currentUser)
         //getGoodsRequest(pageNumber: 1, categoryId: 123)
         //getProductRequest(productId: 111)
-        getFeedbacksRequest(pageNumber: 11, productId: 111)
+        //getFeedbacksRequest(pageNumber: 11, productId: 111)
         //addFeedbackRequest(productId: 111, newFeedback: Feedback(id: 0, userId: 23525, comment: "Example comment..."))
         //removeFeedbackRequest(productId: 111, feedbackId: 444)
+        shoping()
+        
     }
     
     private func authRequest() {
@@ -89,17 +91,19 @@ class ViewController: UIViewController {
         }
     }
     
-    private func getGoodsRequest(pageNumber: Int, categoryId: Int) {
+    private func getGoodsRequest(pageNumber: Int, categoryId: Int) -> [Product] {
         let goods = requestFactory.makeGoodsRequestFactory()
+        var products: [Product] = []
         
         goods.getCatalogData(pageNumber: pageNumber, categoryId: categoryId) { response in
             switch response.result {
             case .success(let goods):
-                print(goods)
+                products = goods.goods ?? []
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+        return products
     }
     
     private func getProductRequest(productId: Int) {
@@ -150,6 +154,26 @@ class ViewController: UIViewController {
                 print(feedbacks)
             case .failure(let error):
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func shoping() {
+        let basket = requestFactory.makeBasketRequestFactory()
+        let allProducts = getGoodsRequest(pageNumber: 0, categoryId: 111)
+        
+        allProducts.forEach { product in
+            UserBasket.shared.addProduct(product)
+        }
+        
+        if !allProducts.isEmpty {
+            basket.payBasket(userId: 111) { response in
+                switch response.result {
+                case .success(let basketResult):
+                    print(basketResult)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }
