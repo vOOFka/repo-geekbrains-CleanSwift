@@ -26,13 +26,13 @@ class Profile: AbstractRequestFactory {
 }
 
 extension Profile: ProfileRequestFactory {
-    func signUp(userProfile: UserProfile, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void) {
-        let requestModel = SignUp(baseUrl: baseUrl, userProfile: userProfile)
+    func signUp(user: User, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void) {
+        let requestModel = SignUp(baseUrl: baseUrl, user: user)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func editProfile(userProfile: UserProfile, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void) {
-        let requestModel = EditProfile(baseUrl: baseUrl, userProfile: userProfile)
+    func editProfile(user: User, completionHandler: @escaping (AFDataResponse<ProfileResult>) -> Void) {
+        let requestModel = EditProfile(baseUrl: baseUrl, user: user)
         self.request(request: requestModel, completionHandler: completionHandler)
     }    
 }
@@ -44,22 +44,22 @@ extension Profile {
         let path: String = "signup"
         let encoding: RequestRouterEncoding = .json
         
-        let userProfile: UserProfile
+        let user: User
         
         var parameters: Parameters? {
             return [
-                "userProfile" : [
-                    "user" : [
-                        "id": userProfile.user.id,
-                        "login": userProfile.user.login,
-                        "password": userProfile.user.password
-                    ],
-                    "name" : userProfile.name,
-                    "lastname": userProfile.lastname,
-                    "email": userProfile.email,
-                    "gender": userProfile.gender,
-                    "creditCard": userProfile.creditCard,
-                    "bio": userProfile.bio
+                "user" : [
+                    "id" : user.id,
+                    "login" : user.login,
+                    "password" : user.password,
+                    "userProfile" : [
+                        "name" : user.userProfile.name,
+                        "lastname" : user.userProfile.lastname,
+                        "email" : user.userProfile.email,
+                        "gender" : user.userProfile.gender,
+                        "creditCard" : user.userProfile.creditCard,
+                        "bio" : user.userProfile.bio
+                    ]
                 ]
             ]
         }
@@ -71,22 +71,22 @@ extension Profile {
         let path: String = "editprofile"
         let encoding: RequestRouterEncoding = .json
         
-        let userProfile: UserProfile
+        let user: User
         
         var parameters: Parameters? {
             return [
-                "userProfile" : [
-                    "user" : [
-                        "id": userProfile.user.id,
-                        "login": userProfile.user.login,
-                        "password": userProfile.user.password
-                    ],
-                    "name" : userProfile.name,
-                    "lastname": userProfile.lastname,
-                    "email": userProfile.email,
-                    "gender": userProfile.gender,
-                    "creditCard": userProfile.creditCard,
-                    "bio": userProfile.bio
+                "user" : [
+                    "id" : user.id,
+                    "login" : user.login,
+                    "password" : user.password,
+                    "userProfile" : [
+                        "name" : user.userProfile.name,
+                        "lastname" : user.userProfile.lastname,
+                        "email" : user.userProfile.email,
+                        "gender" : user.userProfile.gender,
+                        "creditCard" : user.userProfile.creditCard,
+                        "bio" : user.userProfile.bio
+                    ]
                 ]
             ]
         }
