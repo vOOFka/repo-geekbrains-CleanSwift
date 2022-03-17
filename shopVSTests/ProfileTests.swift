@@ -20,9 +20,8 @@ class ProfileTests: XCTestCase {
         super.setUp()
         errorParser = ErrorParserStub()
         requestFactory = RequestFactory()
-        userProfile = UserProfile(user: User(login: "exit551", name: "Vladimir", lastname: "Sirel"),
-                                                                       password: "asdasfa",
-                                                                       email: "exit551@ya.ru")
+        let user = User(id: 0, login: "exit551", password: "dasd123asd")
+        userProfile = UserProfile(user: user, name: "Vladimir", lastname: "Sirel" , email: "exit551@ya.ru", creditCard: "1234-5678-9101-1121")
     }
     
     override func tearDown() {

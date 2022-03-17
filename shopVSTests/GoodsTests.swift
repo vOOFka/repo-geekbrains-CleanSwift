@@ -33,7 +33,8 @@ class GoodsTests: XCTestCase {
         goods.getCatalogData(pageNumber: 1, categoryId: 123) { [weak self] (response: AFDataResponse<CatalogResult>) in
             switch response.result {
             case .success(let catalogResult):
-                if !catalogResult.isEmpty {
+                if let goods = catalogResult.goods,
+                   !goods.isEmpty {
                     self?.exectation.fulfill()
                 } else {
                     XCTFail("Something wrong in getCatalogData")

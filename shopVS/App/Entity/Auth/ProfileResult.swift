@@ -8,6 +8,8 @@
 import Foundation
 
 struct ProfileResult: Codable {
-    let result: Int
-    let userMessage: String?
+    var result: Int
+    var userId: Int?
+    var userMessage: String?
+    var errorMessage: String?
 }
