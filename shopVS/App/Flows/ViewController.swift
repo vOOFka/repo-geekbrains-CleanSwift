@@ -24,11 +24,13 @@ class ViewController: UIViewController {
         //logoutRequest()
         //signUpRequest()
         //editProfileRequest(currentUser)
-        //getGoodsRequest(pageNumber: 1, categoryId: 123)
+        //getGoodsRequest(pageNumber: 1, categoryId: 321)
         //getProductRequest(productId: 111)
-        getFeedbacksRequest(pageNumber: 11, productId: 111)
+        //getFeedbacksRequest(pageNumber: 11, productId: 111)
         //addFeedbackRequest(productId: 111, newFeedback: Feedback(id: 0, userId: 23525, comment: "Example comment..."))
         //removeFeedbackRequest(productId: 111, feedbackId: 444)
+        shoping()
+        
     }
     
     private func authRequest() {
@@ -89,17 +91,19 @@ class ViewController: UIViewController {
         }
     }
     
-    private func getGoodsRequest(pageNumber: Int, categoryId: Int) {
+    private func getGoodsRequest(pageNumber: Int, categoryId: Int) -> [Product] {
         let goods = requestFactory.makeGoodsRequestFactory()
+        var products: [Product] = []
         
         goods.getCatalogData(pageNumber: pageNumber, categoryId: categoryId) { response in
             switch response.result {
             case .success(let goods):
-                print(goods)
+                products = goods.goods ?? []
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+        return products
     }
     
     private func getProductRequest(productId: Int) {
@@ -152,6 +156,29 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func shoping() {
+        let basket = requestFactory.makeBasketRequestFactory()
+                
+        let productFirst = Product(id: 111, name: "Notebook ASUS", price: 3000, description: "Super fast notebook")
+        let productSecond = Product(id: 222, name: "Iphone", price: 2000, description: "Great phone")
+        UserBasket.shared.addProduct(productFirst)
+        UserBasket.shared.addProduct(productSecond)
+        
+        let allProducts = UserBasket.shared.products
+                
+        if !allProducts.isEmpty {
+            basket.payBasket(userId: 123) { response in
+                switch response.result {
+                case .success(let basketResult):
+                    print(basketResult)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        UserBasket.shared.clearProducts()
     }
 }
 
