@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AuthViewController.swift
 //  shopVS
 //
 //  Created by Home on 12.02.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AuthViewController: UIViewController {
     
     private let requestFactory = RequestFactory()
     private let currentUser = User(id: 0140828713151909195,
