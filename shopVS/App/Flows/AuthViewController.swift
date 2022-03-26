@@ -13,6 +13,7 @@ final class AuthViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var enterButton: UIButton!
+    @IBOutlet weak var buttonsStackView: UIStackView!
     
     // MARK: - Properties
     private let requestFactory = RequestFactory()
@@ -69,11 +70,13 @@ final class AuthViewController: UIViewController {
         
         scrollView.contentInset = contentInsert
         scrollView.scrollIndicatorInsets = contentInsert
-        scrollView.scrollRectToVisible(enterButton.frame, animated: true)
+        scrollView.scrollRectToVisible(buttonsStackView.frame, animated: true)
+        print(scrollView.contentInset)
     }
     
     @objc private func keyboardHide () {
         scrollView.contentInset = .zero
+        print(scrollView.contentInset)
     }
     
     @objc private func hideKeyboard () {
