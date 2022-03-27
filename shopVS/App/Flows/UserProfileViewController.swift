@@ -1,22 +1,29 @@
 //
-//  AuthViewController.swift
+//  UserProfileViewController.swift
 //  shopVS
 //
-//  Created by Home on 12.02.2022.
+//  Created by Home on 27.03.2022.
 //
 
 import UIKit
 
-final class AuthViewController: UIViewController {
+final class UserProfileViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var conformPasswordTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var creditCardTextField: UITextField!
+    @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var enterButton: UIButton!
-    @IBOutlet weak var buttonsStackView: UIStackView!
     
     // MARK: - Properties
     private let requestFactory = RequestFactory()
+    private var activeFrame = CGRect.zero
     
     // MARK: - Lifecycle
     
@@ -44,7 +51,6 @@ final class AuthViewController: UIViewController {
     private func registerKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-
     }
     
     private func removeNotifications() {
@@ -63,7 +69,7 @@ final class AuthViewController: UIViewController {
         
         scrollView.contentInset = contentInsert
         scrollView.scrollIndicatorInsets = contentInsert
-        scrollView.scrollRectToVisible(buttonsStackView.frame, animated: true)
+        scrollView.scrollRectToVisible(activeFrame, animated: true)
     }
     
     @objc private func keyboardHide() {
@@ -74,24 +80,33 @@ final class AuthViewController: UIViewController {
         scrollView.endEditing(true)
     }
     
-    private func authRequest() {
-        let auth = requestFactory.makeAuthRequestFactory()
-        
-        auth.login(userName: "vOOFka", password: "qwerty123") { response in
-            switch response.result {
-            case .success(let login):
-                print(login)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+    private func profileRequest() {
+        let _ = requestFactory.makeProfileRequestFactory()
+
     }
     
     // MARK: - Actions
     
-    @IBAction private func signUpButtonTap(_ sender: Any) {
+    @IBAction private func enterButtonTap(_ sender: Any) {
+    }
+}
+
+extension UserProfileViewController : UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.activeFrame = textField.frame
     }
     
-    @IBAction private func enterButtonTap(_ sender: Any) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.activeFrame = CGRect.zero
+    }
+}
+
+extension UserProfileViewController : UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.activeFrame = textView.frame
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.activeFrame = CGRect.zero
     }
 }

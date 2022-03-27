@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BeN-yZ-Lom">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -142,7 +142,7 @@
         <!--User profile-->
         <scene sceneID="d3D-Mj-IGK">
             <objects>
-                <viewController title="User profile" id="BeN-yZ-Lom" sceneMemberID="viewController">
+                <viewController title="User profile" id="BeN-yZ-Lom" customClass="UserProfileViewController" customModule="shopVS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xr6-AV-sri">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -151,7 +151,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JUF-wn-QkR" userLabel="Data Stack View">
-                                        <rect key="frame" x="24" y="20" width="272" height="774.5"/>
+                                        <rect key="frame" x="24" y="20" width="272" height="724.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iR-vB-a2V">
                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="20.5"/>
@@ -302,18 +302,21 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hOW-na-U2J" userLabel="Biography Text View">
-                                                <rect key="frame" x="0.0" y="538.5" width="272" height="200"/>
+                                                <rect key="frame" x="0.0" y="538.5" width="272" height="150"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="8FM-oY-Dpp"/>
+                                                    <constraint firstAttribute="height" constant="150" id="8FM-oY-Dpp"/>
                                                 </constraints>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BeN-yZ-Lom" id="Aqi-zV-qEE"/>
+                                                </connections>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajz-43-cpu">
-                                                <rect key="frame" x="0.0" y="743.5" width="272" height="31"/>
+                                                <rect key="frame" x="0.0" y="693.5" width="272" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="4xG-Tm-7Rb"/>
                                                 </constraints>
@@ -324,7 +327,7 @@
                                                     </backgroundConfiguration>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="enterButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oxi-c6-Grp"/>
+                                                    <action selector="enterButtonTap:" destination="BeN-yZ-Lom" eventType="touchUpInside" id="aB2-rW-6OS"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -339,6 +342,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZCI-cL-GO4"/>
                         <color key="backgroundColor" systemColor="systemBrownColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="64N-Hw-W67" secondAttribute="trailing" id="4R0-Ng-ZXh"/>
@@ -347,6 +351,19 @@
                             <constraint firstAttribute="bottom" secondItem="64N-Hw-W67" secondAttribute="bottom" id="wx8-hU-jz9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bioTextView" destination="hOW-na-U2J" id="vzy-ZC-Cfl"/>
+                        <outlet property="conformPasswordTextField" destination="UF3-nb-rSB" id="1cq-2x-e1A"/>
+                        <outlet property="creditCardTextField" destination="rBs-M3-yJ0" id="Ru7-96-HNc"/>
+                        <outlet property="emailTextField" destination="CbV-dr-YvC" id="lfL-X3-BTV"/>
+                        <outlet property="enterButton" destination="Ajz-43-cpu" id="pdT-wL-4tn"/>
+                        <outlet property="genderSegmentedControl" destination="dZg-Mt-dSf" id="1MU-RQ-DCd"/>
+                        <outlet property="lastNameTextField" destination="8S9-yo-SxG" id="1zj-oX-sP1"/>
+                        <outlet property="loginTextField" destination="S9z-Wa-zQi" id="4ct-ZR-fbF"/>
+                        <outlet property="nameTextField" destination="1G9-wN-8DU" id="2P4-Q3-FiI"/>
+                        <outlet property="passwordTextField" destination="8oe-cn-wg7" id="R8O-Ye-lwI"/>
+                        <outlet property="scrollView" destination="64N-Hw-W67" id="8P5-Op-Bec"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUd-d9-wUt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
