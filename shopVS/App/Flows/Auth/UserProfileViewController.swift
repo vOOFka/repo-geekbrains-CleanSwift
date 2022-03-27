@@ -20,17 +20,18 @@ final class UserProfileViewController: UIViewController {
     @IBOutlet weak var creditCardTextField: UITextField!
     @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var enterButton: UIButton!
+    @IBOutlet weak var closeBarButton: UIBarButtonItem!
     
     // MARK: - Properties
     private let requestFactory = RequestFactory()
     private var activeFrame = CGRect.zero
+    private var currentUser = AppSession.shared.currentUser
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +46,17 @@ final class UserProfileViewController: UIViewController {
     
     // MARK: - Methods
     private func configUI() {
-        
+        loginTextField.text = currentUser?.login
+        nameTextField.text = currentUser?.userProfile.name
+        lastNameTextField.text = currentUser?.userProfile.lastname
+        emailTextField.text = currentUser?.userProfile.email
+        genderSegmentedControl.selectedSegmentIndex = selectGenderSegmentedControl(gender: currentUser?.userProfile.gender) ?? 0
+        creditCardTextField.text = currentUser?.userProfile.creditCard
+        bioTextView.text = currentUser?.userProfile.bio
+    }
+    
+    private func selectGenderSegmentedControl(gender: String?) -> Int? {
+        Gender(rawValue: gender ?? "Male")?.value
     }
     
     private func registerKeyboardNotifications() {
@@ -88,6 +99,10 @@ final class UserProfileViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func enterButtonTap(_ sender: Any) {
+    }
+    
+    @IBAction private func closeBarButtonTap(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
 }
 

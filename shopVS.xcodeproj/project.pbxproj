@@ -26,6 +26,10 @@
 		F44FC29A27BD6D5700367585 /* ProfileResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44FC29927BD6D5700367585 /* ProfileResult.swift */; };
 		F463886F27F0D79E003E38CC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463886E27F0D79E003E38CC /* UserProfileViewController.swift */; };
 		F463887327F0EE2C003E38CC /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887227F0EE2C003E38CC /* UIViewController+Ext.swift */; };
+		F463887627F0F206003E38CC /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887527F0F206003E38CC /* AppSession.swift */; };
+		F463887827F0F2F9003E38CC /* AppSessionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887727F0F2F9003E38CC /* AppSessionCaretaker.swift */; };
+		F463887A27F0FFE6003E38CC /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887927F0FFE6003E38CC /* AppService.swift */; };
+		F463887E27F10DC3003E38CC /* GoodsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */; };
 		F471710827D7501900552884 /* UserBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710727D7501900552884 /* UserBasket.swift */; };
 		F471710B27D7599500552884 /* BasketCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710A27D7599500552884 /* BasketCaretaker.swift */; };
 		F471710E27D768C900552884 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710D27D768C900552884 /* Array+Ext.swift */; };
@@ -97,6 +101,10 @@
 		F44FC29927BD6D5700367585 /* ProfileResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResult.swift; sourceTree = "<group>"; };
 		F463886E27F0D79E003E38CC /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		F463887227F0EE2C003E38CC /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		F463887527F0F206003E38CC /* AppSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
+		F463887727F0F2F9003E38CC /* AppSessionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionCaretaker.swift; sourceTree = "<group>"; };
+		F463887927F0FFE6003E38CC /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsTableViewController.swift; sourceTree = "<group>"; };
 		F471710727D7501900552884 /* UserBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasket.swift; sourceTree = "<group>"; };
 		F471710A27D7599500552884 /* BasketCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCaretaker.swift; sourceTree = "<group>"; };
 		F471710D27D768C900552884 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
@@ -287,9 +295,9 @@
 		F41B189627B7B8B60089824E /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				F463887C27F10D9C003E38CC /* Auth */,
+				F463887B27F10D91003E38CC /* Goods */,
 				F41B186827B79BB60089824E /* Main.storyboard */,
-				F41B186627B79BB60089824E /* AuthViewController.swift */,
-				F463886E27F0D79E003E38CC /* UserProfileViewController.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -297,6 +305,7 @@
 		F41B189727B7B8C00089824E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F463887427F0F18F003E38CC /* Local */,
 				F49AAFC927BC24DD00BCB9EF /* Network */,
 			);
 			path = Core;
@@ -317,6 +326,33 @@
 				F41B187027B79BB80089824E /* Info.plist */,
 			);
 			path = Environments;
+			sourceTree = "<group>";
+		};
+		F463887427F0F18F003E38CC /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				F463887527F0F206003E38CC /* AppSession.swift */,
+				F463887727F0F2F9003E38CC /* AppSessionCaretaker.swift */,
+				F463887927F0FFE6003E38CC /* AppService.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		F463887B27F10D91003E38CC /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+				F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */,
+			);
+			path = Goods;
+			sourceTree = "<group>";
+		};
+		F463887C27F10D9C003E38CC /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F41B186627B79BB60089824E /* AuthViewController.swift */,
+				F463886E27F0D79E003E38CC /* UserProfileViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		F471710627D74F3C00552884 /* Basket */ = {
@@ -541,6 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F463887E27F10DC3003E38CC /* GoodsTableViewController.swift in Sources */,
 				F49AAFDD27BC25F600BCB9EF /* Auth.swift in Sources */,
 				F49AAFDB27BC25EA00BCB9EF /* RequestFactory.swift in Sources */,
 				F463887327F0EE2C003E38CC /* UIViewController+Ext.swift in Sources */,
@@ -554,8 +591,10 @@
 				F49AAFD327BC258400BCB9EF /* RequestRouter.swift in Sources */,
 				F49AAFD127BC257100BCB9EF /* AbstractRequestFactory.swift in Sources */,
 				F4CFDBC327BD6BA4000DA598 /* SceneDelegate.swift in Sources */,
+				F463887A27F0FFE6003E38CC /* AppService.swift in Sources */,
 				F4186C1127C27BCC007F5F45 /* ProductResult.swift in Sources */,
 				F49AAFD727BC25A700BCB9EF /* AuthResult.swift in Sources */,
+				F463887827F0F2F9003E38CC /* AppSessionCaretaker.swift in Sources */,
 				F471711227D7763C00552884 /* BasketResult.swift in Sources */,
 				F471710B27D7599500552884 /* BasketCaretaker.swift in Sources */,
 				F49AAFCD27BC252200BCB9EF /* ErrorParser.swift in Sources */,
@@ -571,6 +610,7 @@
 				F41B186327B79BB60089824E /* AppDelegate.swift in Sources */,
 				F44FC29A27BD6D5700367585 /* ProfileResult.swift in Sources */,
 				F49AAFCB27BC250F00BCB9EF /* AbstractErrorParser.swift in Sources */,
+				F463887627F0F206003E38CC /* AppSession.swift in Sources */,
 				F471710827D7501900552884 /* UserBasket.swift in Sources */,
 				F4186C0B27C24904007F5F45 /* Goods.swift in Sources */,
 				F463886F27F0D79E003E38CC /* UserProfileViewController.swift in Sources */,

@@ -139,16 +139,62 @@
             </objects>
             <point key="canvasLocation" x="-32" y="115"/>
         </scene>
+        <!--Goods Table View Controller-->
+        <scene sceneID="LaV-XK-wlN">
+            <objects>
+                <tableViewController storyboardIdentifier="GoodsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9DD-FH-QWq" customClass="GoodsTableViewController" customModule="shopVS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GoodsTableViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="xPf-Eo-89D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.99897331" green="0.51644492149999999" blue="0.26016920799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoodsTableViewCellIdentifier" id="Hia-1K-L4m">
+                                <rect key="frame" x="0.0" y="44.5" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hia-1K-L4m" id="7kt-DZ-MVs">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.99897331" green="0.51644492149999999" blue="0.26016920799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9DD-FH-QWq" id="CjX-48-qDS"/>
+                            <outlet property="delegate" destination="9DD-FH-QWq" id="ocR-La-gkE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnV-8d-2ry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36" y="829"/>
+        </scene>
         <!--User profile-->
         <scene sceneID="d3D-Mj-IGK">
             <objects>
-                <viewController title="User profile" id="BeN-yZ-Lom" customClass="UserProfileViewController" customModule="shopVS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xr6-AV-sri">
+                <viewController storyboardIdentifier="UserProfileViewController" title="User profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BeN-yZ-Lom" customClass="UserProfileViewController" customModule="shopVS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xr6-AV-sri">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiS-nJ-OKh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="User profile" id="2rU-o4-h3y">
+                                        <barButtonItem key="rightBarButtonItem" title="Close" id="EZs-Ms-HxI">
+                                            <connections>
+                                                <action selector="closeBarButtonTap:" destination="BeN-yZ-Lom" id="BHY-h7-7t8"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64N-Hw-W67">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JUF-wn-QkR" userLabel="Data Stack View">
                                         <rect key="frame" x="24" y="20" width="272" height="724.5"/>
@@ -342,17 +388,21 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="ZCI-cL-GO4"/>
-                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <viewLayoutGuide key="safeArea" id="QaJ-kh-WGH"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
+                            <constraint firstItem="LiS-nJ-OKh" firstAttribute="top" secondItem="QaJ-kh-WGH" secondAttribute="top" id="14Q-X9-oZP"/>
                             <constraint firstAttribute="trailing" secondItem="64N-Hw-W67" secondAttribute="trailing" id="4R0-Ng-ZXh"/>
                             <constraint firstItem="64N-Hw-W67" firstAttribute="leading" secondItem="xr6-AV-sri" secondAttribute="leading" id="Soc-d9-rdP"/>
-                            <constraint firstItem="64N-Hw-W67" firstAttribute="top" secondItem="xr6-AV-sri" secondAttribute="top" id="wDK-yP-Xx5"/>
+                            <constraint firstAttribute="trailing" secondItem="LiS-nJ-OKh" secondAttribute="trailing" id="ZwY-Ul-uv7"/>
+                            <constraint firstItem="64N-Hw-W67" firstAttribute="top" secondItem="LiS-nJ-OKh" secondAttribute="bottom" id="mBI-iZ-lIa"/>
+                            <constraint firstItem="LiS-nJ-OKh" firstAttribute="leading" secondItem="xr6-AV-sri" secondAttribute="leading" id="oLz-wR-Lae"/>
                             <constraint firstAttribute="bottom" secondItem="64N-Hw-W67" secondAttribute="bottom" id="wx8-hU-jz9"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bioTextView" destination="hOW-na-U2J" id="vzy-ZC-Cfl"/>
+                        <outlet property="closeBarButton" destination="EZs-Ms-HxI" id="mGK-om-wBe"/>
                         <outlet property="conformPasswordTextField" destination="UF3-nb-rSB" id="1cq-2x-e1A"/>
                         <outlet property="creditCardTextField" destination="rBs-M3-yJ0" id="Ru7-96-HNc"/>
                         <outlet property="emailTextField" destination="CbV-dr-YvC" id="lfL-X3-BTV"/>
@@ -377,8 +427,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

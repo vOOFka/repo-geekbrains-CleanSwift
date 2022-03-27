@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AuthViewController: UIViewController {
+final class AuthViewController: UIViewController {    
     // MARK: - Outlets
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginTextField: UITextField!
@@ -17,13 +17,12 @@ final class AuthViewController: UIViewController {
     
     // MARK: - Properties
     private let requestFactory = RequestFactory()
+    private let appService = AppService()
     
     // MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,13 +37,14 @@ final class AuthViewController: UIViewController {
     
     // MARK: - Methods
     private func configUI() {
-        
+        loginTextField.text = "Test"
+        passwordTextField.text = "qwerty123"
     }
     
     private func registerKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-
+        
     }
     
     private func removeNotifications() {
@@ -55,7 +55,7 @@ final class AuthViewController: UIViewController {
         let hideKeyboardGestre = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(hideKeyboardGestre)
     }
-
+    
     @objc private func keyboardShow(_ notification: NSNotification) {
         let userInfo = notification.userInfo
         let keyboardSize = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
@@ -74,15 +74,27 @@ final class AuthViewController: UIViewController {
         scrollView.endEditing(true)
     }
     
-    private func authRequest() {
+    private func authRequest(_ login: String, _ password: String) {
         let auth = requestFactory.makeAuthRequestFactory()
         
-        auth.login(userName: "vOOFka", password: "qwerty123") { response in
+        auth.login(userName: login, password: password) { [weak self] response in
+            guard let self = self else { return }
             switch response.result {
-            case .success(let login):
-                print(login)
+            case .success(let loginResult):
+                DispatchQueue.main.async {
+                    if loginResult.result == 1,
+                       let authUser = loginResult.user {
+                        print(authUser)
+                        AppSession.shared.setNewSession(user: authUser)
+                        self.appService.showModalScene(viewController: self, with: .goodsCatalog)
+                    } else {
+                        self.showError(message: loginResult.errorMessage ?? "Unknow error, please try again later.")
+                    }                    
+                }
             case .failure(let error):
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.showError(message: error.localizedDescription)
+                }
             }
         }
     }
@@ -90,8 +102,18 @@ final class AuthViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func signUpButtonTap(_ sender: Any) {
+        appService.showModalScene(viewController: self, with: .userProfile)
     }
     
     @IBAction private func enterButtonTap(_ sender: Any) {
+        guard let login = loginTextField.text,
+              let password = passwordTextField.text,
+              !login.isEmpty,
+              !password.isEmpty
+        else {
+            showError(message: "Need enter login and password")
+            return
+        }
+        authRequest(login, password)
     }
 }

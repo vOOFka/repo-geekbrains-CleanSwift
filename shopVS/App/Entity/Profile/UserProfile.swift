@@ -15,3 +15,15 @@ struct UserProfile: Codable {
     let creditCard: String
     var bio: String = ""
 }
+
+enum Gender: String, CaseIterable {
+    case male = "Male"
+    case female = "Female"
+    
+    var value: Int {
+        switch self {
+        case .male: return 0
+        case .female : return 1
+        }
+    }
+}
