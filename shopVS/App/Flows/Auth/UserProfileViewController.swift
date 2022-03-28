@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class UserProfileViewController: UIViewController {
     // MARK: - Outlets
@@ -50,13 +51,17 @@ final class UserProfileViewController: UIViewController {
         nameTextField.text = currentUser?.userProfile.name
         lastNameTextField.text = currentUser?.userProfile.lastname
         emailTextField.text = currentUser?.userProfile.email
-        genderSegmentedControl.selectedSegmentIndex = selectGenderSegmentedControl(gender: currentUser?.userProfile.gender) ?? 0
+        genderSegmentedControl.selectedSegmentIndex = selectedGenderSegmentIndex(gender: currentUser?.userProfile.gender) ?? 0
         creditCardTextField.text = currentUser?.userProfile.creditCard
         bioTextView.text = currentUser?.userProfile.bio
     }
     
-    private func selectGenderSegmentedControl(gender: String?) -> Int? {
+    private func selectedGenderSegmentIndex(gender: String?) -> Int? {
         Gender(rawValue: gender ?? "Male")?.value
+    }
+    
+    private func getGenderString(segmentedControlIndex: Int) -> String {
+        segmentedControlIndex == Gender.male.value ? Gender.male.rawValue : Gender.female.rawValue
     }
     
     private func registerKeyboardNotifications() {
@@ -91,14 +96,91 @@ final class UserProfileViewController: UIViewController {
         scrollView.endEditing(true)
     }
     
+    private func createProfileFromData(userId: Int) -> User {
+        let profile = UserProfile(name: nameTextField.text ?? String(),
+                                     lastname: lastNameTextField.text ?? String(),
+                                     email: emailTextField.text ?? String(),
+                                     gender: getGenderString(segmentedControlIndex: genderSegmentedControl.selectedSegmentIndex),
+                                     creditCard: creditCardTextField.text ?? String(),
+                                     bio: bioTextView.text ?? String()
+        )
+        
+        let user = User(id: userId,
+                           login: loginTextField.text ?? String(),
+                           password: passwordTextField.text ?? String(),
+                           userProfile: profile
+        )
+        
+        return user
+    }
+    
     private func profileRequest() {
-        let _ = requestFactory.makeProfileRequestFactory()
-
+        let profile = requestFactory.makeProfileRequestFactory()
+        
+        if let currentUser = currentUser {
+            let editUser = self.createProfileFromData(userId: currentUser.id)
+            profile.editProfile(user: editUser) { [weak self] response in
+                guard let self = self else { return }
+                switch response.result {
+                case .success(let editUserResult):
+                    DispatchQueue.main.async {
+                        if editUserResult.result == 1,
+                           editUser.id == editUserResult.userId {
+                            let newProfile = self.createProfileFromData(userId: editUser.id)
+                            AppSession.shared.setUserInSession(user: newProfile)
+                            print("editUserResult - \(editUserResult)")
+                            self.dismiss(animated: true)
+                        } else {
+                            self.showError(message: editUserResult.errorMessage ?? "Unknow error, please try again later.")
+                        }
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.showError(message: error.localizedDescription)
+                    }
+                }
+            }
+        } else {
+            let newProfile = self.createProfileFromData(userId: 0)
+            profile.signUp(user: newProfile) { [weak self] response in
+                guard let self = self else { return }
+                switch response.result {
+                case .success(let signUpUserResult):
+                    DispatchQueue.main.async {
+                        if signUpUserResult.result == 1,
+                           let signUpUserId = signUpUserResult.userId {
+                            let newProfile = self.createProfileFromData(userId: signUpUserId)
+                            AppSession.shared.setUserInSession(user: newProfile)
+                            print("signUpUserResult - \(signUpUserResult)")
+                            self.dismiss(animated: true)
+                        } else {
+                            self.showError(message: signUpUserResult.errorMessage ?? "Unknow error, please try again later.")
+                        }
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.showError(message: error.localizedDescription)
+                    }
+                }
+            }
+        }
     }
     
     // MARK: - Actions
     
     @IBAction private func enterButtonTap(_ sender: Any) {
+        guard let login = loginTextField.text,
+              let password = passwordTextField.text,
+              let conformPassword = conformPasswordTextField.text,
+              !login.isEmpty,
+              !password.isEmpty,
+              !conformPassword.isEmpty,
+              password == conformPassword
+        else {
+            showError(message: "Cant save profile, check the required login passwords fields")
+            return
+        }
+        profileRequest()
     }
     
     @IBAction private func closeBarButtonTap(_ sender: UIBarButtonItem) {

@@ -20,11 +20,11 @@ class AppSession {
         self.currentUser = self.appSessionCaretaker.retrieveSessionUser()
     }
     
-    func cleanSession() {
+    func cleanUserInSession() {
         self.currentUser = nil
     }
     
-    func setNewSession(user: User) {
+    func setUserInSession(user: User) {
         self.currentUser = user
     }
 }

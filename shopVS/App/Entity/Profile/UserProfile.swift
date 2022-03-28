@@ -8,11 +8,11 @@
 import Foundation
 
 struct UserProfile: Codable {
-    let name: String
-    let lastname: String
-    let email: String
+    var name: String
+    var lastname: String
+    var email: String
     var gender: String = ""
-    let creditCard: String
+    var creditCard: String
     var bio: String = ""
 }
 

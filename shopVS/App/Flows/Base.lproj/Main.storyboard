@@ -66,11 +66,11 @@
                                                     <constraint firstItem="yKn-Bz-jxd" firstAttribute="height" secondItem="JjG-v9-ity" secondAttribute="height" id="yWa-Ed-2DE"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OEj-eD-Xip" userLabel="Buttons Stack View">
-                                                <rect key="frame" x="45" y="228" width="230" height="31"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OEj-eD-Xip" userLabel="Buttons Stack View">
+                                                <rect key="frame" x="45" y="228" width="230" height="109"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hk2-q4-LmH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="31"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Sign up" cornerStyle="small">
                                                             <backgroundConfiguration key="background">
@@ -82,7 +82,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMN-BZ-OX8">
-                                                        <rect key="frame" x="119" y="0.0" width="111" height="31"/>
+                                                        <rect key="frame" x="0.0" y="39" width="230" height="31"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Enter" cornerStyle="small">
                                                             <backgroundConfiguration key="background">
@@ -91,6 +91,18 @@
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="enterButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ujy-WE-ir7"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlI-EQ-mQx">
+                                                        <rect key="frame" x="0.0" y="78" width="230" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Exit" cornerStyle="small">
+                                                            <backgroundConfiguration key="background">
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </backgroundConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="exitButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZCG-uK-YC2"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -130,9 +142,11 @@
                     <connections>
                         <outlet property="buttonsStackView" destination="OEj-eD-Xip" id="z3H-WF-hm8"/>
                         <outlet property="enterButton" destination="XMN-BZ-OX8" id="Clw-iD-sG2"/>
+                        <outlet property="exitButton" destination="zlI-EQ-mQx" id="HW4-ED-Rne"/>
                         <outlet property="loginTextField" destination="gzJ-ZI-R0v" id="OMM-YA-4q5"/>
                         <outlet property="passwordTextField" destination="JjG-v9-ity" id="OeQ-yI-ICr"/>
                         <outlet property="scrollView" destination="8Bg-zN-AjD" id="iMw-Qq-u9M"/>
+                        <outlet property="signUpButton" destination="Hk2-q4-LmH" id="bBP-Hh-WzG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -12,7 +12,9 @@ final class AuthViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var enterButton: UIButton!
+    @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var buttonsStackView: UIStackView!
     
     // MARK: - Properties
@@ -39,6 +41,9 @@ final class AuthViewController: UIViewController {
     private func configUI() {
         loginTextField.text = "Test"
         passwordTextField.text = "qwerty123"
+        if AppSession.shared.currentUser != nil {
+            signUpButton.setTitle("Edit profile", for: .normal)
+        }
     }
     
     private func registerKeyboardNotifications() {
@@ -84,12 +89,37 @@ final class AuthViewController: UIViewController {
                 DispatchQueue.main.async {
                     if loginResult.result == 1,
                        let authUser = loginResult.user {
-                        print(authUser)
-                        AppSession.shared.setNewSession(user: authUser)
+                        AppSession.shared.setUserInSession(user: authUser)
                         self.appService.showModalScene(viewController: self, with: .goodsCatalog)
                     } else {
                         self.showError(message: loginResult.errorMessage ?? "Unknow error, please try again later.")
-                    }                    
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.showError(message: error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    private func logoutRequest() {
+        let auth = requestFactory.makeAuthRequestFactory()
+        guard let currentUser = AppSession.shared.currentUser else { return }
+        
+        auth.logout(userId: currentUser.id) { [weak self] response in
+            guard let self = self else { return }
+            switch response.result {
+            case .success(let logoutResult):
+                DispatchQueue.main.async {
+                    if logoutResult.result == 1 {
+                        self.signUpButton.setTitle("Sign up", for: .normal)
+                        self.loginTextField.text = String()
+                        self.passwordTextField.text = String()
+                        AppSession.shared.cleanUserInSession()
+                    } else {
+                        self.showError(message: logoutResult.errorMessage ?? "Unknow error, please try again later.")
+                    }
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -115,5 +145,9 @@ final class AuthViewController: UIViewController {
             return
         }
         authRequest(login, password)
+    }
+    
+    @IBAction func exitButtonTap(_ sender: Any) {
+        logoutRequest()
     }
 }
