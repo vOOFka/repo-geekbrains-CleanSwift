@@ -180,18 +180,25 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Catalog" id="5cr-es-A3g">
-                        <barButtonItem key="leftBarButtonItem" title="Profile" id="wec-30-l7i">
-                            <imageReference key="image" image="person.text.rectangle" catalog="system" symbolScale="large" renderingMode="hierarchical">
-                                <hierarchicalColors>
-                                    <color red="1" green="0.52906065589999995" blue="0.25471386629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color systemColor="systemGreenColor"/>
-                                    <color systemColor="systemPinkColor"/>
-                                </hierarchicalColors>
-                            </imageReference>
-                            <connections>
-                                <action selector="profileButtonTap:" destination="9DD-FH-QWq" id="q5R-WS-Mmk"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Exit" image="rectangle.portrait.and.arrow.right" catalog="system" id="rTe-Ce-wrB">
+                                <connections>
+                                    <action selector="exitButton:" destination="9DD-FH-QWq" id="UIL-0k-U1Z"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Profile" id="wec-30-l7i">
+                                <imageReference key="image" image="person.text.rectangle" catalog="system" renderingMode="hierarchical">
+                                    <hierarchicalColors>
+                                        <color red="1" green="0.52906065589999995" blue="0.25471386629999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color systemColor="systemGreenColor"/>
+                                        <color systemColor="systemPinkColor"/>
+                                    </hierarchicalColors>
+                                </imageReference>
+                                <connections>
+                                    <action selector="profileButtonTap:" destination="9DD-FH-QWq" id="q5R-WS-Mmk"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Refresh" image="arrow.clockwise.icloud" catalog="system" id="JUP-rd-mIF">
                             <connections>
                                 <action selector="refreshButtonTap:" destination="9DD-FH-QWq" id="OTP-N1-I8Z"/>
@@ -493,6 +500,7 @@
     <resources>
         <image name="arrow.clockwise.icloud" catalog="system" width="128" height="88"/>
         <image name="person.text.rectangle" catalog="system" width="128" height="93"/>
+        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <image name="tray.full" catalog="system" width="128" height="88"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

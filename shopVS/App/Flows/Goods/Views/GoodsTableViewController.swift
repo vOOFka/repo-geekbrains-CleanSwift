@@ -8,12 +8,7 @@
 import UIKit
 
 class GoodsTableViewController: UITableViewController {
-    // MARK: - Properties
-    private var pageNumber = 9999999
-    private var categoryId = 321
-    
-    private let appService = AppService()
-    
+    // MARK: - Public properties
     var viewModel: GoodsViewModel?
     {
         didSet {
@@ -23,6 +18,11 @@ class GoodsTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - Private properties
+    private var pageNumber = 9999999
+    private var categoryId = 321    
+    private let appService = AppService()
+     
     // MARK: - Init & Lifecycle
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -75,5 +75,8 @@ class GoodsTableViewController: UITableViewController {
         viewModel?.update(pageNumber: pageNumber, categoryId: categoryId) { [weak self] in
             self?.tableView.reloadData()
         }
+    }
+    @IBAction func exitButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
 }

@@ -20,6 +20,12 @@ final class GoodsTableViewCell: UITableViewCell {
         descriptionLabel.numberOfLines = 5
     }
     
+    override func prepareForReuse() {
+        nameLabel.text = String()
+        priceLabel.text = String()
+        descriptionLabel.text = String()
+    }
+    
     // MARK: - Config
     
     func config(for viewModel: GoodsViewCellModel) {

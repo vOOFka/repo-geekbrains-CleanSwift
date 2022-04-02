@@ -42,6 +42,7 @@
 		F47E8DB327F85F6E002AAE17 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E8DB227F85F6E002AAE17 /* Reusable.swift */; };
 		F47E8DB827F86010002AAE17 /* GoodsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E8DB627F86010002AAE17 /* GoodsTableViewCell.swift */; };
 		F47E8DB927F86010002AAE17 /* GoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47E8DB727F86010002AAE17 /* GoodsTableViewCell.xib */; };
+		F47E8DBB27F8CDDD002AAE17 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E8DBA27F8CDDC002AAE17 /* AuthViewModel.swift */; };
 		F483076027F4D4D800A738BA /* GoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483075F27F4D4D800A738BA /* GoodsViewModel.swift */; };
 		F48FA6CA27C6471B00E8C8F3 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA6C927C6471B00E8C8F3 /* ProfileTests.swift */; };
 		F48FA6CC27C64BE200E8C8F3 /* GoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA6CB27C64BE100E8C8F3 /* GoodsTests.swift */; };
@@ -122,6 +123,7 @@
 		F47E8DB227F85F6E002AAE17 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		F47E8DB627F86010002AAE17 /* GoodsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsTableViewCell.swift; sourceTree = "<group>"; };
 		F47E8DB727F86010002AAE17 /* GoodsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsTableViewCell.xib; sourceTree = "<group>"; };
+		F47E8DBA27F8CDDC002AAE17 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		F483075F27F4D4D800A738BA /* GoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsViewModel.swift; sourceTree = "<group>"; };
 		F48FA6C727C639DB00E8C8F3 /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
 		F48FA6C827C63B5E00E8C8F3 /* UITestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITestPlan.xctestplan; sourceTree = "<group>"; };
@@ -360,8 +362,8 @@
 		F463887C27F10D9C003E38CC /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				F41B186627B79BB60089824E /* AuthViewController.swift */,
-				F463886E27F0D79E003E38CC /* UserProfileViewController.swift */,
+				F47E8DBC27F8D9A5002AAE17 /* ViewModels */,
+				F47E8DBD27F8D9B2002AAE17 /* Views */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -412,6 +414,23 @@
 				F483075F27F4D4D800A738BA /* GoodsViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F47E8DBC27F8D9A5002AAE17 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F47E8DBA27F8CDDC002AAE17 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F47E8DBD27F8D9B2002AAE17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F41B186627B79BB60089824E /* AuthViewController.swift */,
+				F463886E27F0D79E003E38CC /* UserProfileViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F49AAFC927BC24DD00BCB9EF /* Network */ = {
@@ -648,6 +667,7 @@
 				F47E8DB327F85F6E002AAE17 /* Reusable.swift in Sources */,
 				F463887627F0F206003E38CC /* AppSession.swift in Sources */,
 				F471710827D7501900552884 /* UserBasket.swift in Sources */,
+				F47E8DBB27F8CDDD002AAE17 /* AuthViewModel.swift in Sources */,
 				F4186C0B27C24904007F5F45 /* Goods.swift in Sources */,
 				F463886F27F0D79E003E38CC /* UserProfileViewController.swift in Sources */,
 				F4250C8527BD91D100B9C3EA /* UserProfile.swift in Sources */,
