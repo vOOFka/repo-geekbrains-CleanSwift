@@ -41,9 +41,7 @@ final class AuthViewController: UIViewController {
     private func configUI() {
         loginTextField.text = "Test"
         passwordTextField.text = "qwerty123"
-        if AppSession.shared.currentUser != nil {
-            signUpButton.setTitle("Edit profile", for: .normal)
-        }
+        signUpButton.isEnabled = (AppSession.shared.currentUser != nil) ?  false : true
     }
     
     private func registerKeyboardNotifications() {
@@ -113,10 +111,8 @@ final class AuthViewController: UIViewController {
             case .success(let logoutResult):
                 DispatchQueue.main.async {
                     if logoutResult.result == 1 {
-                        self.signUpButton.setTitle("Sign up", for: .normal)
-                        self.loginTextField.text = String()
-                        self.passwordTextField.text = String()
                         AppSession.shared.cleanUserInSession()
+                        self.configUI()
                     } else {
                         self.showError(message: logoutResult.errorMessage ?? "Unknow error, please try again later.")
                     }

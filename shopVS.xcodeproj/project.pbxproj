@@ -38,6 +38,10 @@
 		F471711427D7770E00552884 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471711327D7770E00552884 /* Basket.swift */; };
 		F471711627D77C5F00552884 /* BasketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471711527D77C5F00552884 /* BasketTests.swift */; };
 		F47AB20627D4928500584A9E /* FeedbacksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47AB20527D4928500584A9E /* FeedbacksTests.swift */; };
+		F47E8DB127F85E34002AAE17 /* GoodsViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E8DB027F85E34002AAE17 /* GoodsViewCellModel.swift */; };
+		F47E8DB327F85F6E002AAE17 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E8DB227F85F6E002AAE17 /* Reusable.swift */; };
+		F47E8DB827F86010002AAE17 /* GoodsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E8DB627F86010002AAE17 /* GoodsTableViewCell.swift */; };
+		F47E8DB927F86010002AAE17 /* GoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47E8DB727F86010002AAE17 /* GoodsTableViewCell.xib */; };
 		F483076027F4D4D800A738BA /* GoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483075F27F4D4D800A738BA /* GoodsViewModel.swift */; };
 		F48FA6CA27C6471B00E8C8F3 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA6C927C6471B00E8C8F3 /* ProfileTests.swift */; };
 		F48FA6CC27C64BE200E8C8F3 /* GoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA6CB27C64BE100E8C8F3 /* GoodsTests.swift */; };
@@ -114,6 +118,10 @@
 		F471711327D7770E00552884 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		F471711527D77C5F00552884 /* BasketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTests.swift; sourceTree = "<group>"; };
 		F47AB20527D4928500584A9E /* FeedbacksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbacksTests.swift; sourceTree = "<group>"; };
+		F47E8DB027F85E34002AAE17 /* GoodsViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsViewCellModel.swift; sourceTree = "<group>"; };
+		F47E8DB227F85F6E002AAE17 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		F47E8DB627F86010002AAE17 /* GoodsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsTableViewCell.swift; sourceTree = "<group>"; };
+		F47E8DB727F86010002AAE17 /* GoodsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsTableViewCell.xib; sourceTree = "<group>"; };
 		F483075F27F4D4D800A738BA /* GoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsViewModel.swift; sourceTree = "<group>"; };
 		F48FA6C727C639DB00E8C8F3 /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
 		F48FA6C827C63B5E00E8C8F3 /* UITestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITestPlan.xctestplan; sourceTree = "<group>"; };
@@ -343,8 +351,8 @@
 		F463887B27F10D91003E38CC /* Goods */ = {
 			isa = PBXGroup;
 			children = (
-				F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */,
-				F483075F27F4D4D800A738BA /* GoodsViewModel.swift */,
+				F47E8DB527F85FB0002AAE17 /* ViewModels */,
+				F47E8DB427F85FA5002AAE17 /* Views */,
 			);
 			path = Goods;
 			sourceTree = "<group>";
@@ -382,8 +390,28 @@
 			children = (
 				F471710D27D768C900552884 /* Array+Ext.swift */,
 				F463887227F0EE2C003E38CC /* UIViewController+Ext.swift */,
+				F47E8DB227F85F6E002AAE17 /* Reusable.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		F47E8DB427F85FA5002AAE17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */,
+				F47E8DB627F86010002AAE17 /* GoodsTableViewCell.swift */,
+				F47E8DB727F86010002AAE17 /* GoodsTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F47E8DB527F85FB0002AAE17 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F47E8DB027F85E34002AAE17 /* GoodsViewCellModel.swift */,
+				F483075F27F4D4D800A738BA /* GoodsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F49AAFC927BC24DD00BCB9EF /* Network */ = {
@@ -555,6 +583,7 @@
 			files = (
 				F41B186F27B79BB80089824E /* LaunchScreen.storyboard in Resources */,
 				F41B186C27B79BB80089824E /* Assets.xcassets in Resources */,
+				F47E8DB927F86010002AAE17 /* GoodsTableViewCell.xib in Resources */,
 				F41B186A27B79BB60089824E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,10 +620,12 @@
 				F4CFDBBB27BD672B000DA598 /* Profile.swift in Sources */,
 				F4186C0D27C2493F007F5F45 /* GoodsRequestFactory.swift in Sources */,
 				F471710E27D768C900552884 /* Array+Ext.swift in Sources */,
+				F47E8DB127F85E34002AAE17 /* GoodsViewCellModel.swift in Sources */,
 				F49AAFD327BC258400BCB9EF /* RequestRouter.swift in Sources */,
 				F49AAFD127BC257100BCB9EF /* AbstractRequestFactory.swift in Sources */,
 				F4CFDBC327BD6BA4000DA598 /* SceneDelegate.swift in Sources */,
 				F463887A27F0FFE6003E38CC /* AppService.swift in Sources */,
+				F47E8DB827F86010002AAE17 /* GoodsTableViewCell.swift in Sources */,
 				F4186C1127C27BCC007F5F45 /* ProductResult.swift in Sources */,
 				F49AAFD727BC25A700BCB9EF /* AuthResult.swift in Sources */,
 				F463887827F0F2F9003E38CC /* AppSessionCaretaker.swift in Sources */,
@@ -614,6 +645,7 @@
 				F41B186327B79BB60089824E /* AppDelegate.swift in Sources */,
 				F44FC29A27BD6D5700367585 /* ProfileResult.swift in Sources */,
 				F49AAFCB27BC250F00BCB9EF /* AbstractErrorParser.swift in Sources */,
+				F47E8DB327F85F6E002AAE17 /* Reusable.swift in Sources */,
 				F463887627F0F206003E38CC /* AppSession.swift in Sources */,
 				F471710827D7501900552884 /* UserBasket.swift in Sources */,
 				F4186C0B27C24904007F5F45 /* Goods.swift in Sources */,
