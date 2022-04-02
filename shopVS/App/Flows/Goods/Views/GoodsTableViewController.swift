@@ -37,8 +37,7 @@ class GoodsTableViewController: UITableViewController {
         viewModel = GoodsViewModel()
     }
     
-    // MARK: - Table view data source
-    
+    // MARK: - Table view data source    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let cells = viewModel?.cellsArray else {
             return 0

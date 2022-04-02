@@ -81,8 +81,7 @@ final class AuthViewController: UIViewController {
         scrollView.endEditing(true)
     }
     
-    // MARK: - Actions
-    
+    // MARK: - Actions    
     @IBAction private func signUpButtonTap(_ sender: Any) {
         appService.showModalScene(viewController: self, with: .userProfile)
     }
