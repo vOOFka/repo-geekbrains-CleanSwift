@@ -44,7 +44,7 @@ class ProductDetailsViewController: UIViewController {
         tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 60.0
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         
         tableView.register(GoodsTableViewCell.self)
         tableView.registerClass(FeedbackTableViewCell.self)
@@ -113,5 +113,13 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
         default:
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

@@ -26,11 +26,11 @@ final class FeedbackTableViewCell: UITableViewCell {
     }
     
     private func initialConfig() {
-        nameLabel.numberOfLines = 0
+        nameLabel.numberOfLines = 1
         commentLabel.numberOfLines = 0
-        addSubview(userImageView)
-        addSubview(nameLabel)
-        addSubview(commentLabel)
+        contentView.addSubview(userImageView)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(commentLabel)
         layoutSubviews()
     }
     
@@ -42,17 +42,21 @@ final class FeedbackTableViewCell: UITableViewCell {
     public func config(with feedbackViewCellModel: FeedbackViewCellModel) {
         self.viewModel = feedbackViewCellModel
         
-        self.nameLabel.text = viewModel?.name
+        self.nameLabel.text = "User: \(String(describing: viewModel?.name))"
         self.commentLabel.text = viewModel?.comment
         self.userImageView.image = UIImage(systemName: "person.wave.2")
     }
     
     override func layoutSubviews() {
-        contentView.pin.all()
-        userImageView.pin.centerLeft().height(24.0).width(24.0)
-        nameLabel.pin.after(of: userImageView, aligned: .center).marginLeft(12.0).sizeToFit()
-        commentLabel.pin.below(of: userImageView, aligned: .left).sizeToFit()
+        userImageView.pin.topLeft().height(36.0).width(36.0).marginHorizontal(12.0).marginTop(12.0)
+        nameLabel.pin.after(of: userImageView, aligned: .center).marginHorizontal(12.0).sizeToFit()
+        commentLabel.pin.below(of: userImageView, aligned: .left).marginTop(16.0).marginHorizontal(12.0).sizeToFit()
         
-        contentView.pin.height(commentLabel.frame.maxY + 12.0)
+        contentView.pin.height(commentLabel.frame.maxY)
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        layoutSubviews()
+        return CGSize(width: size.width, height: commentLabel.frame.maxY + 12.0)
     }
 }
