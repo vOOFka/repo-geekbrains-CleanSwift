@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4137E2127F9948700361FF2 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = F4137E2027F9948700361FF2 /* PinLayout */; };
+		F4137E2427F99BEF00361FF2 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */; };
+		F4137E2627F9AB9900361FF2 /* FeedbackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */; };
+		F4137E2827F9ACE200361FF2 /* FeedbackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2727F9ACE200361FF2 /* FeedbackTableViewCell.swift */; };
 		F4186C0627C225F9007F5F45 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4186C0527C225F9007F5F45 /* Product.swift */; };
 		F4186C0827C22716007F5F45 /* CatalogResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4186C0727C22716007F5F45 /* CatalogResult.swift */; };
 		F4186C0B27C24904007F5F45 /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4186C0A27C24904007F5F45 /* Goods.swift */; };
@@ -85,6 +89,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewCellModel.swift; sourceTree = "<group>"; };
+		F4137E2727F9ACE200361FF2 /* FeedbackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackTableViewCell.swift; sourceTree = "<group>"; };
 		F4186C0527C225F9007F5F45 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F4186C0727C22716007F5F45 /* CatalogResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogResult.swift; sourceTree = "<group>"; };
 		F4186C0A27C24904007F5F45 /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
@@ -155,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4137E2127F9948700361FF2 /* PinLayout in Frameworks */,
 				F49AAFC827BC24A100BCB9EF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +184,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4137E2227F99B8100361FF2 /* Feedbacks */ = {
+			isa = PBXGroup;
+			children = (
+				F4137E2A27F9ACF800361FF2 /* ViewModels */,
+				F4137E2927F9ACE700361FF2 /* Views */,
+			);
+			path = Feedbacks;
+			sourceTree = "<group>";
+		};
+		F4137E2927F9ACE700361FF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */,
+				F4137E2727F9ACE200361FF2 /* FeedbackTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F4137E2A27F9ACF800361FF2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		F4186C0927C248B5007F5F45 /* Goods */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +343,7 @@
 		F41B189627B7B8B60089824E /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				F4137E2227F99B8100361FF2 /* Feedbacks */,
 				F463887C27F10D9C003E38CC /* Auth */,
 				F463887B27F10D91003E38CC /* Goods */,
 				F41B186827B79BB60089824E /* Main.storyboard */,
@@ -511,6 +546,7 @@
 			name = shopVS;
 			packageProductDependencies = (
 				F49AAFC727BC24A100BCB9EF /* Alamofire */,
+				F4137E2027F9948700361FF2 /* PinLayout */,
 			);
 			productName = shopVS;
 			productReference = F41B185F27B79BB60089824E /* shopVS.app */;
@@ -586,6 +622,7 @@
 			mainGroup = F41B185627B79BB60089824E;
 			packageReferences = (
 				F49AAFC627BC24A100BCB9EF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F4137E1F27F9948700361FF2 /* XCRemoteSwiftPackageReference "PinLayout" */,
 			);
 			productRefGroup = F41B186027B79BB60089824E /* Products */;
 			projectDirPath = "";
@@ -660,14 +697,17 @@
 				F4DD0AFB27D01140003EAC2F /* FeedbacksResult.swift in Sources */,
 				F471711427D7770E00552884 /* Basket.swift in Sources */,
 				F4186C0627C225F9007F5F45 /* Product.swift in Sources */,
+				F4137E2627F9AB9900361FF2 /* FeedbackViewCellModel.swift in Sources */,
 				F483076027F4D4D800A738BA /* GoodsViewModel.swift in Sources */,
 				F49AAFD527BC259700BCB9EF /* User.swift in Sources */,
 				F4186C0827C22716007F5F45 /* CatalogResult.swift in Sources */,
 				F4CFDBBD27BD6793000DA598 /* ProfileRequestFactory.swift in Sources */,
+				F4137E2427F99BEF00361FF2 /* ProductDetailsViewController.swift in Sources */,
 				F4DD0AF527D01076003EAC2F /* FeedbacksRequestFactory.swift in Sources */,
 				F41B186327B79BB60089824E /* AppDelegate.swift in Sources */,
 				F44FC29A27BD6D5700367585 /* ProfileResult.swift in Sources */,
 				F49AAFCB27BC250F00BCB9EF /* AbstractErrorParser.swift in Sources */,
+				F4137E2827F9ACE200361FF2 /* FeedbackTableViewCell.swift in Sources */,
 				F47E8DB327F85F6E002AAE17 /* Reusable.swift in Sources */,
 				F463887627F0F206003E38CC /* AppSession.swift in Sources */,
 				F471710827D7501900552884 /* UserBasket.swift in Sources */,
@@ -1045,6 +1085,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F4137E1F27F9948700361FF2 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		F49AAFC627BC24A100BCB9EF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1056,6 +1104,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F4137E2027F9948700361FF2 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4137E1F27F9948700361FF2 /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
 		F49AAFC727BC24A100BCB9EF /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F49AAFC627BC24A100BCB9EF /* XCRemoteSwiftPackageReference "Alamofire" */;
