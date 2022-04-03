@@ -11,7 +11,11 @@ final class FeedbackViewCellModel {
     private(set) var name: String
     private(set) var comment: String
     
-    init(feedback: Feedback) {
+    init?(feedback: Feedback?) {
+        guard let feedback = feedback else {
+            return nil
+        }
+        
         self.name = String(feedback.userId)
         self.comment = feedback.comment
     }

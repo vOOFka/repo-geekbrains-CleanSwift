@@ -44,9 +44,15 @@ final class FeedbackTableViewCell: UITableViewCell {
         
         self.nameLabel.text = viewModel?.name
         self.commentLabel.text = viewModel?.comment
+        self.userImageView.image = UIImage(systemName: "person.wave.2")
     }
     
     override func layoutSubviews() {
-
+        contentView.pin.all()
+        userImageView.pin.centerLeft().height(24.0).width(24.0)
+        nameLabel.pin.after(of: userImageView, aligned: .center).marginLeft(12.0).sizeToFit()
+        commentLabel.pin.below(of: userImageView, aligned: .left).sizeToFit()
+        
+        contentView.pin.height(commentLabel.frame.maxY + 12.0)
     }
 }

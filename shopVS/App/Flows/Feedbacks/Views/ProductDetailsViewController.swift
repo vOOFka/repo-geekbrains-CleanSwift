@@ -11,11 +11,20 @@ import PinLayout
 class ProductDetailsViewController: UIViewController {
     // MARK: - Public properties
     var productViewModel: GoodsViewCellModel?
-    var feedbackViewModel: FeedbackViewCellModel?
+    var feedbacksViewModel: FeedbacksViewModel?
+    {
+        didSet {
+            feedbacksViewModel?.update(pageNumber: pageNumber, productId: productViewModel?.id ?? 0) { [weak self] in
+                self?.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+            }
+        }
+    }
     
     // MARK: - Private properties
     private var tableView = UITableView()
     private let appService = AppService()
+    private let pageNumber = 99999999
+
      
     // MARK: - Init & Lifecycle
     init(productViewModel: GoodsViewCellModel) {
@@ -34,9 +43,13 @@ class ProductDetailsViewController: UIViewController {
         tableView.delegate = self
         tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 60.0
         
         tableView.register(GoodsTableViewCell.self)
+        tableView.registerClass(FeedbackTableViewCell.self)
         
+        feedbacksViewModel = FeedbacksViewModel()
         layoutSubviews()
     }
     
@@ -47,6 +60,19 @@ class ProductDetailsViewController: UIViewController {
     
     private func layoutSubviews() {
         tableView.pin.all()
+    }
+    
+    private func getCountFeedbackCells() -> Int {
+        guard let cellsArray = feedbacksViewModel?.cellsArray else {
+            return 0
+        }
+        
+        switch cellsArray {
+        case .Success(let cellsArray):
+            return cellsArray.count
+        case .Failure(_):
+            return 0
+        }
     }
 }
 
@@ -59,7 +85,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
         case 0:
             return 1
         case 1:
-            return 0
+            return getCountFeedbackCells()
         default:
             return 0
         }
@@ -68,6 +94,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         let cell = tableView.dequeueReusableCell(GoodsTableViewCell.self, for: indexPath)
+        let feedbackCell = tableView.dequeueReusableCell(FeedbackTableViewCell.self, for: indexPath)
         
         guard let productViewModel = productViewModel else {
             return cell
@@ -78,7 +105,11 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
             cell.config(for: productViewModel)
             return cell
         case 1:
-            return cell
+            guard let cellsArray = feedbacksViewModel?.cellsArray?.compactMap(FeedbackViewCellModel.self) else {
+                return feedbackCell
+            }
+            feedbackCell.config(with: cellsArray[indexPath.row])
+            return feedbackCell
         default:
             return cell
         }
