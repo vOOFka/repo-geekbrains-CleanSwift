@@ -37,6 +37,7 @@
 		F463887827F0F2F9003E38CC /* AppSessionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887727F0F2F9003E38CC /* AppSessionCaretaker.swift */; };
 		F463887A27F0FFE6003E38CC /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887927F0FFE6003E38CC /* AppService.swift */; };
 		F463887E27F10DC3003E38CC /* GoodsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */; };
+		F46B8C2227FA2F2500581787 /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B8C2127FA2F2500581787 /* IconImageView.swift */; };
 		F471710827D7501900552884 /* UserBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710727D7501900552884 /* UserBasket.swift */; };
 		F471710B27D7599500552884 /* BasketCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710A27D7599500552884 /* BasketCaretaker.swift */; };
 		F471710E27D768C900552884 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710D27D768C900552884 /* Array+Ext.swift */; };
@@ -125,6 +126,7 @@
 		F463887727F0F2F9003E38CC /* AppSessionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionCaretaker.swift; sourceTree = "<group>"; };
 		F463887927F0FFE6003E38CC /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsTableViewController.swift; sourceTree = "<group>"; };
+		F46B8C2127FA2F2500581787 /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		F471710727D7501900552884 /* UserBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasket.swift; sourceTree = "<group>"; };
 		F471710A27D7599500552884 /* BasketCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCaretaker.swift; sourceTree = "<group>"; };
 		F471710D27D768C900552884 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 		F47E8DB427F85FA5002AAE17 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F46B8C2127FA2F2500581787 /* IconImageView.swift */,
 				F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */,
 				F47E8DB627F86010002AAE17 /* GoodsTableViewCell.swift */,
 				F47E8DB727F86010002AAE17 /* GoodsTableViewCell.xib */,
@@ -714,6 +717,7 @@
 				F4186C0827C22716007F5F45 /* CatalogResult.swift in Sources */,
 				F4CFDBBD27BD6793000DA598 /* ProfileRequestFactory.swift in Sources */,
 				F4137E2427F99BEF00361FF2 /* ProductDetailsViewController.swift in Sources */,
+				F46B8C2227FA2F2500581787 /* IconImageView.swift in Sources */,
 				F4DD0AF527D01076003EAC2F /* FeedbacksRequestFactory.swift in Sources */,
 				F41B186327B79BB60089824E /* AppDelegate.swift in Sources */,
 				F44FC29A27BD6D5700367585 /* ProfileResult.swift in Sources */,
