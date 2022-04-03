@@ -48,6 +48,7 @@ class ProductDetailsViewController: UIViewController {
         
         tableView.register(GoodsTableViewCell.self)
         tableView.registerClass(FeedbackTableViewCell.self)
+        tableView.registerClass(FeedbackAddTableViewCell.self)
         
         feedbacksViewModel = FeedbacksViewModel()
         layoutSubviews()
@@ -85,7 +86,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
         case 0:
             return 1
         case 1:
-            return getCountFeedbackCells()
+            return getCountFeedbackCells() + 1
         default:
             return 0
         }
@@ -94,6 +95,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         let cell = tableView.dequeueReusableCell(GoodsTableViewCell.self, for: indexPath)
+        let feedbackAddCell = tableView.dequeueReusableCell(FeedbackAddTableViewCell.self, for: indexPath)
         let feedbackCell = tableView.dequeueReusableCell(FeedbackTableViewCell.self, for: indexPath)
         
         guard let productViewModel = productViewModel else {
@@ -108,8 +110,14 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
             guard let cellsArray = feedbacksViewModel?.cellsArray?.compactMap(FeedbackViewCellModel.self) else {
                 return feedbackCell
             }
-            feedbackCell.config(with: cellsArray[indexPath.row])
-            return feedbackCell
+            if indexPath.row == 0 {
+                feedbackAddCell.delegate = self
+                return feedbackAddCell
+            } else {
+                let index = indexPath.row - 1
+                feedbackCell.config(with: cellsArray[index])
+                return feedbackCell
+            }
         default:
             return cell
         }
@@ -121,5 +129,16 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+extension ProductDetailsViewController: AddFeedbackButtonDelegate {
+    func addFeedbackButtonTap(newFeedback: Feedback) {
+        guard let productId = productViewModel?.id else {
+            return
+        }
+        feedbacksViewModel?.addFeedbackRequest(productId: productId, newFeedback: newFeedback) { [weak self] in
+            self?.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+        }
     }
 }

@@ -9,12 +9,16 @@ import UIKit
 import PinLayout
 
 final class FeedbackTableViewCell: UITableViewCell {
+    // MARK: - Public properties
     public static let reuseIdentifier = "FaqQuestionCell"
+    
+    // MARK: - Private properties
     private var viewModel: FeedbackViewCellModel?
     private let userImageView = UIImageView()
     private let nameLabel = UILabel()
     private let commentLabel = UILabel()
     
+    // MARK: - Init & Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initialConfig()
@@ -42,8 +46,12 @@ final class FeedbackTableViewCell: UITableViewCell {
     public func config(with feedbackViewCellModel: FeedbackViewCellModel) {
         self.viewModel = feedbackViewCellModel
         
-        self.nameLabel.text = "User: \(String(describing: viewModel?.name))"
-        self.commentLabel.text = viewModel?.comment
+        guard let viewModel = viewModel else {
+            return
+        }
+        
+        self.nameLabel.text = "User: " + viewModel.name
+        self.commentLabel.text = viewModel.comment
         self.userImageView.image = UIImage(systemName: "person.wave.2")
     }
     
