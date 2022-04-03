@@ -77,7 +77,7 @@ class ProductDetailsViewController: UIViewController {
     }
 }
 
-// MARK: - Table view
+// MARK: - Table view delegate & datasourse
 extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int { 2 }
     
@@ -129,6 +129,22 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let contextDeleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _,_,_ in
+            guard let productId = self?.productViewModel?.id,
+                  let feedbacks = self?.feedbacksViewModel?.cellsArray?.compactMap(FeedbackViewCellModel.self)
+            else {
+                return
+            }
+            let feedbackId = feedbacks[(indexPath.row - 1)].id
+            self?.feedbacksViewModel?.removeFeedbackRequest(productId: productId, feedbackId: feedbackId) {
+                self?.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+            }
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextDeleteAction])
+        return swipeActions
     }
 }
 

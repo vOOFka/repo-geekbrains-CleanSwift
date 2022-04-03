@@ -8,6 +8,7 @@
 import Foundation
 
 final class FeedbackViewCellModel {
+    private(set) var id: Int
     private(set) var name: String
     private(set) var comment: String
     
@@ -15,7 +16,7 @@ final class FeedbackViewCellModel {
         guard let feedback = feedback else {
             return nil
         }
-        
+        self.id = feedback.id
         self.name = String(feedback.userId)
         self.comment = feedback.comment
     }
