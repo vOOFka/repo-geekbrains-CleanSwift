@@ -80,6 +80,11 @@
             <point key="canvasLocation" x="131.8840579710145" y="145.64732142857142"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="ElZ-JN-Iu0">
+            <size key="intrinsicContentSize" width="512" height="512"/>
+        </designable>
+    </designables>
     <resources>
         <image name="mybarcode" width="512" height="512"/>
         <systemColor name="systemIndigoColor">
