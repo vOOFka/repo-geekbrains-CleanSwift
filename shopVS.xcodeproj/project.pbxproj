@@ -53,6 +53,7 @@
 		F47E8DBB27F8CDDD002AAE17 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E8DBA27F8CDDC002AAE17 /* AuthViewModel.swift */; };
 		F47E8DBF27F8DA89002AAE17 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E8DBE27F8DA89002AAE17 /* UserProfileViewModel.swift */; };
 		F483076027F4D4D800A738BA /* GoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483075F27F4D4D800A738BA /* GoodsViewModel.swift */; };
+		F489F56727FCC00B00EC6DDC /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F489F56627FCC00B00EC6DDC /* BasketViewController.swift */; };
 		F48FA6CA27C6471B00E8C8F3 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA6C927C6471B00E8C8F3 /* ProfileTests.swift */; };
 		F48FA6CC27C64BE200E8C8F3 /* GoodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FA6CB27C64BE100E8C8F3 /* GoodsTests.swift */; };
 		F49AAFC827BC24A100BCB9EF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F49AAFC727BC24A100BCB9EF /* Alamofire */; };
@@ -142,6 +143,7 @@
 		F47E8DBA27F8CDDC002AAE17 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		F47E8DBE27F8DA89002AAE17 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		F483075F27F4D4D800A738BA /* GoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsViewModel.swift; sourceTree = "<group>"; };
+		F489F56627FCC00B00EC6DDC /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		F48FA6C727C639DB00E8C8F3 /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
 		F48FA6C827C63B5E00E8C8F3 /* UITestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITestPlan.xctestplan; sourceTree = "<group>"; };
 		F48FA6C927C6471B00E8C8F3 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 		F41B189627B7B8B60089824E /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				F489F56527FCBFB800EC6DDC /* Basket */,
 				F4137E2227F99B8100361FF2 /* Feedbacks */,
 				F463887C27F10D9C003E38CC /* Auth */,
 				F463887B27F10D91003E38CC /* Goods */,
@@ -481,6 +484,14 @@
 				F463886E27F0D79E003E38CC /* UserProfileViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F489F56527FCBFB800EC6DDC /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				F489F56627FCC00B00EC6DDC /* BasketViewController.swift */,
+			);
+			path = Basket;
 			sourceTree = "<group>";
 		};
 		F49AAFC927BC24DD00BCB9EF /* Network */ = {
@@ -682,6 +693,7 @@
 			files = (
 				F463887E27F10DC3003E38CC /* GoodsTableViewController.swift in Sources */,
 				F49AAFDD27BC25F600BCB9EF /* Auth.swift in Sources */,
+				F489F56727FCC00B00EC6DDC /* BasketViewController.swift in Sources */,
 				F49AAFDB27BC25EA00BCB9EF /* RequestFactory.swift in Sources */,
 				F463887327F0EE2C003E38CC /* UIViewController+Ext.swift in Sources */,
 				F4DD0AFD27D0118B003EAC2F /* Feedback.swift in Sources */,
