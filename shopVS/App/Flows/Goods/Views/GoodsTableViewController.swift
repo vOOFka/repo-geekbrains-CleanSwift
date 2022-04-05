@@ -31,7 +31,6 @@ class GoodsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(GoodsTableViewCell.self)
-        tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
         
         viewModel = GoodsViewModel()
@@ -63,6 +62,20 @@ class GoodsTableViewController: UITableViewController {
             break
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cellsViewModels = viewModel?.cellsArray else {
+            return
+        }
+        switch cellsViewModels {
+        case .Success(let cellsViewModels):
+            let productViewModel = cellsViewModels[indexPath.row]
+            let productDetailsViewController = ProductDetailsViewController(productViewModel: productViewModel)
+            self.navigationController?.pushViewController(productDetailsViewController, animated: true)
+        case .Failure(_):
+            break
+        }
     }
     
     //MARK: - Actions

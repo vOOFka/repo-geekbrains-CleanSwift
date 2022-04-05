@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4137E2127F9948700361FF2 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = F4137E2027F9948700361FF2 /* PinLayout */; };
+		F4137E2427F99BEF00361FF2 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */; };
+		F4137E2627F9AB9900361FF2 /* FeedbackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */; };
+		F4137E2827F9ACE200361FF2 /* FeedbackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2727F9ACE200361FF2 /* FeedbackTableViewCell.swift */; };
+		F4137E2C27F9B79600361FF2 /* FeedbacksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2B27F9B79600361FF2 /* FeedbacksViewModel.swift */; };
+		F4137E2E27F9D00F00361FF2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2D27F9D00F00361FF2 /* Result.swift */; };
+		F4137E3027FA044100361FF2 /* FeedbackAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2F27FA044100361FF2 /* FeedbackAddTableViewCell.swift */; };
 		F4186C0627C225F9007F5F45 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4186C0527C225F9007F5F45 /* Product.swift */; };
 		F4186C0827C22716007F5F45 /* CatalogResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4186C0727C22716007F5F45 /* CatalogResult.swift */; };
 		F4186C0B27C24904007F5F45 /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4186C0A27C24904007F5F45 /* Goods.swift */; };
@@ -30,6 +37,7 @@
 		F463887827F0F2F9003E38CC /* AppSessionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887727F0F2F9003E38CC /* AppSessionCaretaker.swift */; };
 		F463887A27F0FFE6003E38CC /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887927F0FFE6003E38CC /* AppService.swift */; };
 		F463887E27F10DC3003E38CC /* GoodsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */; };
+		F46B8C2227FA2F2500581787 /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B8C2127FA2F2500581787 /* IconImageView.swift */; };
 		F471710827D7501900552884 /* UserBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710727D7501900552884 /* UserBasket.swift */; };
 		F471710B27D7599500552884 /* BasketCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710A27D7599500552884 /* BasketCaretaker.swift */; };
 		F471710E27D768C900552884 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710D27D768C900552884 /* Array+Ext.swift */; };
@@ -85,6 +93,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewCellModel.swift; sourceTree = "<group>"; };
+		F4137E2727F9ACE200361FF2 /* FeedbackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackTableViewCell.swift; sourceTree = "<group>"; };
+		F4137E2B27F9B79600361FF2 /* FeedbacksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbacksViewModel.swift; sourceTree = "<group>"; };
+		F4137E2D27F9D00F00361FF2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		F4137E2F27FA044100361FF2 /* FeedbackAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackAddTableViewCell.swift; sourceTree = "<group>"; };
 		F4186C0527C225F9007F5F45 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F4186C0727C22716007F5F45 /* CatalogResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogResult.swift; sourceTree = "<group>"; };
 		F4186C0A27C24904007F5F45 /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
@@ -112,6 +126,7 @@
 		F463887727F0F2F9003E38CC /* AppSessionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionCaretaker.swift; sourceTree = "<group>"; };
 		F463887927F0FFE6003E38CC /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsTableViewController.swift; sourceTree = "<group>"; };
+		F46B8C2127FA2F2500581787 /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		F471710727D7501900552884 /* UserBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasket.swift; sourceTree = "<group>"; };
 		F471710A27D7599500552884 /* BasketCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCaretaker.swift; sourceTree = "<group>"; };
 		F471710D27D768C900552884 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
@@ -155,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4137E2127F9948700361FF2 /* PinLayout in Frameworks */,
 				F49AAFC827BC24A100BCB9EF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +192,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4137E2227F99B8100361FF2 /* Feedbacks */ = {
+			isa = PBXGroup;
+			children = (
+				F4137E2A27F9ACF800361FF2 /* ViewModels */,
+				F4137E2927F9ACE700361FF2 /* Views */,
+			);
+			path = Feedbacks;
+			sourceTree = "<group>";
+		};
+		F4137E2927F9ACE700361FF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */,
+				F4137E2727F9ACE200361FF2 /* FeedbackTableViewCell.swift */,
+				F4137E2F27FA044100361FF2 /* FeedbackAddTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F4137E2A27F9ACF800361FF2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F4137E2B27F9B79600361FF2 /* FeedbacksViewModel.swift */,
+				F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		F4186C0927C248B5007F5F45 /* Goods */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +273,7 @@
 			children = (
 				F41B189227B7B8790089824E /* App */,
 				F41B189727B7B8C00089824E /* Core */,
-				F471710C27D768A800552884 /* Utils */,
+				F471710C27D768A800552884 /* Utils&Helpers */,
 				F41B189827B7B8CC0089824E /* Resources */,
 				F41B189927B7B8D70089824E /* Environments */,
 			);
@@ -309,6 +353,7 @@
 		F41B189627B7B8B60089824E /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				F4137E2227F99B8100361FF2 /* Feedbacks */,
 				F463887C27F10D9C003E38CC /* Auth */,
 				F463887B27F10D91003E38CC /* Goods */,
 				F41B186827B79BB60089824E /* Main.storyboard */,
@@ -389,19 +434,21 @@
 			path = Basket;
 			sourceTree = "<group>";
 		};
-		F471710C27D768A800552884 /* Utils */ = {
+		F471710C27D768A800552884 /* Utils&Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				F471710D27D768C900552884 /* Array+Ext.swift */,
 				F463887227F0EE2C003E38CC /* UIViewController+Ext.swift */,
 				F47E8DB227F85F6E002AAE17 /* Reusable.swift */,
+				F4137E2D27F9D00F00361FF2 /* Result.swift */,
 			);
-			path = Utils;
+			path = "Utils&Helpers";
 			sourceTree = "<group>";
 		};
 		F47E8DB427F85FA5002AAE17 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F46B8C2127FA2F2500581787 /* IconImageView.swift */,
 				F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */,
 				F47E8DB627F86010002AAE17 /* GoodsTableViewCell.swift */,
 				F47E8DB727F86010002AAE17 /* GoodsTableViewCell.xib */,
@@ -511,6 +558,7 @@
 			name = shopVS;
 			packageProductDependencies = (
 				F49AAFC727BC24A100BCB9EF /* Alamofire */,
+				F4137E2027F9948700361FF2 /* PinLayout */,
 			);
 			productName = shopVS;
 			productReference = F41B185F27B79BB60089824E /* shopVS.app */;
@@ -586,6 +634,7 @@
 			mainGroup = F41B185627B79BB60089824E;
 			packageReferences = (
 				F49AAFC627BC24A100BCB9EF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F4137E1F27F9948700361FF2 /* XCRemoteSwiftPackageReference "PinLayout" */,
 			);
 			productRefGroup = F41B186027B79BB60089824E /* Products */;
 			projectDirPath = "";
@@ -651,28 +700,35 @@
 				F47E8DB827F86010002AAE17 /* GoodsTableViewCell.swift in Sources */,
 				F4186C1127C27BCC007F5F45 /* ProductResult.swift in Sources */,
 				F49AAFD727BC25A700BCB9EF /* AuthResult.swift in Sources */,
+				F4137E3027FA044100361FF2 /* FeedbackAddTableViewCell.swift in Sources */,
 				F463887827F0F2F9003E38CC /* AppSessionCaretaker.swift in Sources */,
 				F471711227D7763C00552884 /* BasketResult.swift in Sources */,
 				F471710B27D7599500552884 /* BasketCaretaker.swift in Sources */,
+				F4137E2C27F9B79600361FF2 /* FeedbacksViewModel.swift in Sources */,
 				F49AAFCD27BC252200BCB9EF /* ErrorParser.swift in Sources */,
 				F49AAFCF27BC254A00BCB9EF /* ResponseCodable.swift in Sources */,
 				F41B186727B79BB60089824E /* AuthViewController.swift in Sources */,
 				F4DD0AFB27D01140003EAC2F /* FeedbacksResult.swift in Sources */,
 				F471711427D7770E00552884 /* Basket.swift in Sources */,
 				F4186C0627C225F9007F5F45 /* Product.swift in Sources */,
+				F4137E2627F9AB9900361FF2 /* FeedbackViewCellModel.swift in Sources */,
 				F483076027F4D4D800A738BA /* GoodsViewModel.swift in Sources */,
 				F49AAFD527BC259700BCB9EF /* User.swift in Sources */,
 				F4186C0827C22716007F5F45 /* CatalogResult.swift in Sources */,
 				F4CFDBBD27BD6793000DA598 /* ProfileRequestFactory.swift in Sources */,
+				F4137E2427F99BEF00361FF2 /* ProductDetailsViewController.swift in Sources */,
+				F46B8C2227FA2F2500581787 /* IconImageView.swift in Sources */,
 				F4DD0AF527D01076003EAC2F /* FeedbacksRequestFactory.swift in Sources */,
 				F41B186327B79BB60089824E /* AppDelegate.swift in Sources */,
 				F44FC29A27BD6D5700367585 /* ProfileResult.swift in Sources */,
 				F49AAFCB27BC250F00BCB9EF /* AbstractErrorParser.swift in Sources */,
+				F4137E2827F9ACE200361FF2 /* FeedbackTableViewCell.swift in Sources */,
 				F47E8DB327F85F6E002AAE17 /* Reusable.swift in Sources */,
 				F463887627F0F206003E38CC /* AppSession.swift in Sources */,
 				F471710827D7501900552884 /* UserBasket.swift in Sources */,
 				F47E8DBB27F8CDDD002AAE17 /* AuthViewModel.swift in Sources */,
 				F4186C0B27C24904007F5F45 /* Goods.swift in Sources */,
+				F4137E2E27F9D00F00361FF2 /* Result.swift in Sources */,
 				F463886F27F0D79E003E38CC /* UserProfileViewController.swift in Sources */,
 				F4250C8527BD91D100B9C3EA /* UserProfile.swift in Sources */,
 			);
@@ -1045,6 +1101,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F4137E1F27F9948700361FF2 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		F49AAFC627BC24A100BCB9EF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1056,6 +1120,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F4137E2027F9948700361FF2 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4137E1F27F9948700361FF2 /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
 		F49AAFC727BC24A100BCB9EF /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F49AAFC627BC24A100BCB9EF /* XCRemoteSwiftPackageReference "Alamofire" */;
