@@ -13,7 +13,6 @@ enum SceneIdentifier: String {
 }
 
 class AppService {
-    // MARK: - Properties
     // MARK: - Methods
     
     private func getScene(with identifier: SceneIdentifier) -> UIViewController {

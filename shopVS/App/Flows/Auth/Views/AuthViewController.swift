@@ -17,18 +17,22 @@ final class AuthViewController: UIViewController {
     @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var buttonsStackView: UIStackView!
     
-    // MARK: - Properties
-    private let requestFactory = RequestFactory()
+    // MARK: - Public properties
+    var viewModel: AuthViewModel?
+    
+    // MARK: - Private properties
     private let appService = AppService()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        viewModel = AuthViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        configUI()
         registerKeyboardNotifications()
     }
     
@@ -41,9 +45,7 @@ final class AuthViewController: UIViewController {
     private func configUI() {
         loginTextField.text = "Test"
         passwordTextField.text = "qwerty123"
-        if AppSession.shared.currentUser != nil {
-            signUpButton.setTitle("Edit profile", for: .normal)
-        }
+        signUpButton.isEnabled = (AppSession.shared.currentUser != nil) ?  false : true
     }
     
     private func registerKeyboardNotifications() {
@@ -79,58 +81,7 @@ final class AuthViewController: UIViewController {
         scrollView.endEditing(true)
     }
     
-    private func authRequest(_ login: String, _ password: String) {
-        let auth = requestFactory.makeAuthRequestFactory()
-        
-        auth.login(userName: login, password: password) { [weak self] response in
-            guard let self = self else { return }
-            switch response.result {
-            case .success(let loginResult):
-                DispatchQueue.main.async {
-                    if loginResult.result == 1,
-                       let authUser = loginResult.user {
-                        AppSession.shared.setUserInSession(user: authUser)
-                        self.appService.showModalScene(viewController: self, with: .goodsCatalog)
-                    } else {
-                        self.showError(message: loginResult.errorMessage ?? "Unknow error, please try again later.")
-                    }
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.showError(message: error.localizedDescription)
-                }
-            }
-        }
-    }
-    
-    private func logoutRequest() {
-        let auth = requestFactory.makeAuthRequestFactory()
-        guard let currentUser = AppSession.shared.currentUser else { return }
-        
-        auth.logout(userId: currentUser.id) { [weak self] response in
-            guard let self = self else { return }
-            switch response.result {
-            case .success(let logoutResult):
-                DispatchQueue.main.async {
-                    if logoutResult.result == 1 {
-                        self.signUpButton.setTitle("Sign up", for: .normal)
-                        self.loginTextField.text = String()
-                        self.passwordTextField.text = String()
-                        AppSession.shared.cleanUserInSession()
-                    } else {
-                        self.showError(message: logoutResult.errorMessage ?? "Unknow error, please try again later.")
-                    }
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.showError(message: error.localizedDescription)
-                }
-            }
-        }
-    }
-    
-    // MARK: - Actions
-    
+    // MARK: - Actions    
     @IBAction private func signUpButtonTap(_ sender: Any) {
         appService.showModalScene(viewController: self, with: .userProfile)
     }
@@ -144,10 +95,26 @@ final class AuthViewController: UIViewController {
             showError(message: "Need enter login and password")
             return
         }
-        authRequest(login, password)
+        viewModel?.authRequest(login, password) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .Success(_):
+                self.appService.showModalScene(viewController: self, with: .goodsCatalog)
+            case .Failure(let error):
+                self.showError(message: error)
+            }
+        }
     }
     
     @IBAction func exitButtonTap(_ sender: Any) {
-        logoutRequest()
+        viewModel?.logoutRequest { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .Success(_):
+                self.configUI()
+            case .Failure(let error):
+                self.showError(message: error)
+            }
+        }
     }
 }

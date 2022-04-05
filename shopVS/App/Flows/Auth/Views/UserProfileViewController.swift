@@ -23,16 +23,18 @@ final class UserProfileViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var closeBarButton: UIBarButtonItem!
     
-    // MARK: - Properties
-    private let requestFactory = RequestFactory()
+    // MARK: - Public properties
+    var viewModel: UserProfileViewModel?
+    
+    // MARK: - Private properties
     private var activeFrame = CGRect.zero
     private var currentUser = AppSession.shared.currentUser
     
-    // MARK: - Lifecycle
-    
+    // MARK: - Lifecycle    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        viewModel = UserProfileViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,7 +98,7 @@ final class UserProfileViewController: UIViewController {
         scrollView.endEditing(true)
     }
     
-    private func createProfileFromData(userId: Int) -> User {
+    func createProfileFromData(userId: Int) -> User {
         let profile = UserProfile(name: nameTextField.text ?? String(),
                                      lastname: lastNameTextField.text ?? String(),
                                      email: emailTextField.text ?? String(),
@@ -114,58 +116,6 @@ final class UserProfileViewController: UIViewController {
         return user
     }
     
-    private func profileRequest() {
-        let profile = requestFactory.makeProfileRequestFactory()
-        
-        if let currentUser = currentUser {
-            let editUser = self.createProfileFromData(userId: currentUser.id)
-            profile.editProfile(user: editUser) { [weak self] response in
-                guard let self = self else { return }
-                switch response.result {
-                case .success(let editUserResult):
-                    DispatchQueue.main.async {
-                        if editUserResult.result == 1,
-                           editUser.id == editUserResult.userId {
-                            let newProfile = self.createProfileFromData(userId: editUser.id)
-                            AppSession.shared.setUserInSession(user: newProfile)
-                            print("editUserResult - \(editUserResult)")
-                            self.dismiss(animated: true)
-                        } else {
-                            self.showError(message: editUserResult.errorMessage ?? "Unknow error, please try again later.")
-                        }
-                    }
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self.showError(message: error.localizedDescription)
-                    }
-                }
-            }
-        } else {
-            let newProfile = self.createProfileFromData(userId: 0)
-            profile.signUp(user: newProfile) { [weak self] response in
-                guard let self = self else { return }
-                switch response.result {
-                case .success(let signUpUserResult):
-                    DispatchQueue.main.async {
-                        if signUpUserResult.result == 1,
-                           let signUpUserId = signUpUserResult.userId {
-                            let newProfile = self.createProfileFromData(userId: signUpUserId)
-                            AppSession.shared.setUserInSession(user: newProfile)
-                            print("signUpUserResult - \(signUpUserResult)")
-                            self.dismiss(animated: true)
-                        } else {
-                            self.showError(message: signUpUserResult.errorMessage ?? "Unknow error, please try again later.")
-                        }
-                    }
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self.showError(message: error.localizedDescription)
-                    }
-                }
-            }
-        }
-    }
-    
     // MARK: - Actions
     
     @IBAction private func enterButtonTap(_ sender: Any) {
@@ -180,7 +130,17 @@ final class UserProfileViewController: UIViewController {
             showError(message: "Cant save profile, check the required login passwords fields")
             return
         }
-        profileRequest()
+        let userId = currentUser?.id ?? 0
+        let user = createProfileFromData(userId: userId)
+        viewModel?.profileRequest(for: user) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .Success(_):
+                self.dismiss(animated: true)
+            case .Failure(let error):
+                self.showError(message: error)
+            }
+        }
     }
     
     @IBAction private func closeBarButtonTap(_ sender: UIBarButtonItem) {
