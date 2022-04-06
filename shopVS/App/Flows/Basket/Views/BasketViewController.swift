@@ -26,8 +26,14 @@ class BasketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configUI()
         basketViewModel = BasketViewModel()
+        configUI()
+        updateUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateUI()
     }
     
     private func configUI() {
@@ -46,21 +52,24 @@ class BasketViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.textColor = .gray
         
-        goodsCountLabel.text = "goodsCountLabel"
-        totalSummaLabel.text = "totalSummaLabel"
-        
         cleanBasketButton.setTitle("Cleaning", for: .normal)
+        cleanBasketButton.addTarget(self, action: #selector(cleanBasketButtonTap), for: .touchUpInside)
         cleanBasketButton.setTitleColor(UIColor.lightGray, for: .normal)
+        cleanBasketButton.setTitleColor(UIColor.gray, for: .highlighted)
         cleanBasketButton.layer.borderColor = UIColor.gray.cgColor
         cleanBasketButton.layer.borderWidth = 1.0
         cleanBasketButton.layer.cornerRadius = 6.0
         cleanBasketButton.clipsToBounds = true
+        cleanBasketButton.isEnabled = false
         
         payBasketButton.setTitle("Order payment", for: .normal)
+        payBasketButton.addTarget(self, action: #selector(payBasketButtonTap), for: .touchUpInside)
         payBasketButton.backgroundColor = .orange
         payBasketButton.setTitleColor(UIColor.black, for: .normal)
+        payBasketButton.setTitleColor(UIColor.gray, for: .highlighted)
         payBasketButton.layer.cornerRadius = 6.0
         payBasketButton.clipsToBounds = true
+        payBasketButton.isEnabled = false
         
         separatorView.backgroundColor = .lightGray
         
@@ -74,6 +83,19 @@ class BasketViewController: UIViewController {
         tableView.register(GoodsTableViewCell.self)
     }
     
+    func updateUI() {
+        guard let basketViewModel = basketViewModel else {
+            return
+        }
+        basketViewModel.updateBasket {
+            self.goodsCountLabel.text = "Goods count: \(basketViewModel.goodsCount)"
+            self.totalSummaLabel.text = "Total summa: \(basketViewModel.totalSumma)"
+            self.payBasketButton.isEnabled = basketViewModel.cellsArray.count > 0 ? true : false
+            self.cleanBasketButton.isEnabled = payBasketButton.isEnabled
+            self.tableView.reloadData()
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         layoutSubviews()
@@ -85,10 +107,28 @@ class BasketViewController: UIViewController {
         goodsCountLabel.pin.below(of: titleLabel).hCenter().margin(24.0).sizeToFit()
         totalSummaLabel.pin.below(of: goodsCountLabel).hCenter().margin(24.0).sizeToFit()
         cleanBasketButton.pin.minWidth(120.0).margin(24.0).bottomLeft().sizeToFit()
-        payBasketButton.pin.minWidth(160.0).margin(24.0).bottomRight().sizeToFit()
+        payBasketButton.pin.minWidth(200.0).margin(24.0).bottomRight().sizeToFit()
         
         separatorView.pin.below(of: basketInfoHolderView).height(1.0).horizontally()
         tableView.pin.below(of: separatorView).horizontally().bottom()
+    }
+    
+    //MARK: - Actions
+    @objc func cleanBasketButtonTap() {
+        basketViewModel?.cleanBasket(completion: {
+            self.updateUI()
+        })
+    }
+    
+    @objc func payBasketButtonTap() {
+        basketViewModel?.payBasketRequest { result in
+            switch result {
+            case .Success(_):
+                self.updateUI()
+            case .Failure(let error):
+                self.showError(message: error, title: "Error", handler: nil)
+            }
+        }
     }
 }
 

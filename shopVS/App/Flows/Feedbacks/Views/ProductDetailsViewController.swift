@@ -14,7 +14,7 @@ class ProductDetailsViewController: UIViewController {
     var feedbacksViewModel: FeedbacksViewModel?
     {
         didSet {
-            feedbacksViewModel?.update(pageNumber: pageNumber, productId: productViewModel?.id ?? 0) { [weak self] in
+            feedbacksViewModel?.update(pageNumber: pageNumber, productId: productViewModel?.product.id ?? 0) { [weak self] in
                 self?.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
             }
         }
@@ -133,7 +133,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let contextDeleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _,_,_ in
-            guard let productId = self?.productViewModel?.id,
+            guard let productId = self?.productViewModel?.product.id,
                   let feedbacks = self?.feedbacksViewModel?.cellsArray?.compactMap(FeedbackViewCellModel.self)
             else {
                 return
@@ -150,7 +150,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
 
 extension ProductDetailsViewController: AddFeedbackButtonDelegate {
     func addFeedbackButtonTap(newFeedback: Feedback) {
-        guard let productId = productViewModel?.id else {
+        guard let productId = productViewModel?.product.id else {
             return
         }
         feedbacksViewModel?.addFeedbackRequest(productId: productId, newFeedback: newFeedback) { [weak self] in
