@@ -126,6 +126,7 @@ class BasketViewController: UIViewController {
             switch result {
             case .Success(_):
                 self.updateUI()
+                self.showError(message: "Thanks for the order", title: "Successful payment", handler: nil)
             case .Failure(let error):
                 self.showError(message: error, title: "Error", handler: nil)
             }

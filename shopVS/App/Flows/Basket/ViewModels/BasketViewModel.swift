@@ -43,7 +43,7 @@ final class BasketViewModel {
                 case .success(let basketResult):
                     if basketResult.result == 1 {
                         self.payResult = .Success(basketResult)
-                        self.cleanBasket {}
+                        UserBasket.shared.clearProducts()
                     } else {
                         self.payResult = .Failure(basketResult.errorMessage ?? "Unknow error, please try again later.")
                     }
