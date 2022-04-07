@@ -29,6 +29,8 @@ final class BasketViewModel {
     
     func cleanBasket(completion: () -> Void) {
         UserBasket.shared.clearProducts()
+        updateBasket { }
+        completion()
     }
     
     func payBasketRequest(completion: @escaping (Result<BasketResult>) -> Void) {

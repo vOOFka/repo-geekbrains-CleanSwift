@@ -31,9 +31,22 @@ class GoodsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(GoodsTableViewCell.self)
-        tableView.showsVerticalScrollIndicator = false
-        
+        tableView.showsVerticalScrollIndicator = false        
         viewModel = GoodsViewModel()
+    }    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateUI()
+    }
+    
+    func updateUI() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        viewModel.updateCellsArrayByMyCard {
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - Table view data source    

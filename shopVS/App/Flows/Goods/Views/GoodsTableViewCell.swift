@@ -14,6 +14,7 @@ final class GoodsTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var iconImageView: IconImageView!
     @IBOutlet weak var countInMyCardLabel: UILabel!
+    @IBOutlet weak var basketStepper: UIStepper!
     
     private var viewModel: GoodsViewCellModel?
     private var countInMyCard: Int = 0
@@ -28,6 +29,7 @@ final class GoodsTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         viewModel = nil
         countInMyCard = 0
+        basketStepper.value = 0.0
         nameLabel.text = String()
         priceLabel.text = String()
         descriptionLabel.text = String()
@@ -42,6 +44,7 @@ final class GoodsTableViewCell: UITableViewCell {
         self.descriptionLabel.text = viewModel.product.description
         self.countInMyCard = viewModel.countInMyCard
         self.countInMyCardLabel.text = String(countInMyCard)
+        self.basketStepper.value = Double(countInMyCard)
     }
     
     // MARK: - Actions

@@ -104,10 +104,10 @@ class BasketViewController: UIViewController {
     private func layoutSubviews() {
         basketInfoHolderView.pin.height(250.0).topLeft().horizontally()
         titleLabel.pin.topCenter(30.0).sizeToFit()
-        goodsCountLabel.pin.below(of: titleLabel).hCenter().margin(24.0).sizeToFit()
-        totalSummaLabel.pin.below(of: goodsCountLabel).hCenter().margin(24.0).sizeToFit()
+        goodsCountLabel.pin.below(of: titleLabel).minWidth(200.0).hCenter().margin(24.0).sizeToFit()
+        totalSummaLabel.pin.below(of: goodsCountLabel).minWidth(200.0).hCenter().margin(24.0).sizeToFit()
         cleanBasketButton.pin.minWidth(120.0).margin(24.0).bottomLeft().sizeToFit()
-        payBasketButton.pin.minWidth(200.0).margin(24.0).bottomRight().sizeToFit()
+        payBasketButton.pin.minWidth(160.0).margin(24.0).bottomRight().sizeToFit()
         
         separatorView.pin.below(of: basketInfoHolderView).height(1.0).horizontally()
         tableView.pin.below(of: separatorView).horizontally().bottom()
