@@ -19,7 +19,7 @@ final class BasketViewModel {
     private(set) var payResult: Result<BasketResult>?
 
     func updateBasket(completion: () -> Void) {
-        let allProducts = UserBasket.shared.products
+        let allProducts = UserBasket.shared.products.uniqued()
         self.goodsCount = UserBasket.shared.products.count
         self.totalSumma = UserBasket.shared.totalSumma
         self.payResult = nil

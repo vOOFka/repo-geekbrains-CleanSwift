@@ -76,11 +76,12 @@ class BasketViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = false
+        tableView.separatorColor = .clear
         tableView.showsVerticalScrollIndicator = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
         
-        tableView.register(GoodsTableViewCell.self)
+        tableView.registerClass(BasketGoodsTableViewCell.self)
     }
     
     func updateUI() {
@@ -139,7 +140,11 @@ extension BasketViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(GoodsTableViewCell.self, for: indexPath)
+        let cell = tableView.dequeueReusableCell(BasketGoodsTableViewCell.self, for: indexPath)
+        guard let cellsViewModels = basketViewModel?.cellsArray else {
+            return cell
+        }
+        cell.config(with: cellsViewModels[indexPath.row])
         return cell
     }
     

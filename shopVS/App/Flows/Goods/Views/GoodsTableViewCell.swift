@@ -16,9 +16,11 @@ final class GoodsTableViewCell: UITableViewCell {
     @IBOutlet weak var countInMyCardLabel: UILabel!
     @IBOutlet weak var basketStepper: UIStepper!
     
+    // MARK: - Private properties
     private var viewModel: GoodsViewCellModel?
     private var countInMyCard: Int = 0
     
+    // MARK: - Init & Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         nameLabel.numberOfLines = 1

@@ -37,6 +37,7 @@
 		F463887827F0F2F9003E38CC /* AppSessionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887727F0F2F9003E38CC /* AppSessionCaretaker.swift */; };
 		F463887A27F0FFE6003E38CC /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887927F0FFE6003E38CC /* AppService.swift */; };
 		F463887E27F10DC3003E38CC /* GoodsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */; };
+		F463910D27FF64A0003CC09F /* BasketGoodsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F463910C27FF64A0003CC09F /* BasketGoodsTableViewCell.swift */; };
 		F46B8C2227FA2F2500581787 /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B8C2127FA2F2500581787 /* IconImageView.swift */; };
 		F471710827D7501900552884 /* UserBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710727D7501900552884 /* UserBasket.swift */; };
 		F471710B27D7599500552884 /* BasketCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F471710A27D7599500552884 /* BasketCaretaker.swift */; };
@@ -128,6 +129,7 @@
 		F463887727F0F2F9003E38CC /* AppSessionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionCaretaker.swift; sourceTree = "<group>"; };
 		F463887927F0FFE6003E38CC /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		F463887D27F10DC3003E38CC /* GoodsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsTableViewController.swift; sourceTree = "<group>"; };
+		F463910C27FF64A0003CC09F /* BasketGoodsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketGoodsTableViewCell.swift; sourceTree = "<group>"; };
 		F46B8C2127FA2F2500581787 /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		F471710727D7501900552884 /* UserBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBasket.swift; sourceTree = "<group>"; };
 		F471710A27D7599500552884 /* BasketCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCaretaker.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				F489F56627FCC00B00EC6DDC /* BasketViewController.swift */,
+				F463910C27FF64A0003CC09F /* BasketGoodsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				F4137E3027FA044100361FF2 /* FeedbackAddTableViewCell.swift in Sources */,
 				F463887827F0F2F9003E38CC /* AppSessionCaretaker.swift in Sources */,
 				F471711227D7763C00552884 /* BasketResult.swift in Sources */,
+				F463910D27FF64A0003CC09F /* BasketGoodsTableViewCell.swift in Sources */,
 				F471710B27D7599500552884 /* BasketCaretaker.swift in Sources */,
 				F4137E2C27F9B79600361FF2 /* FeedbacksViewModel.swift in Sources */,
 				F489F56C27FCCD3300EC6DDC /* BasketViewModel.swift in Sources */,
