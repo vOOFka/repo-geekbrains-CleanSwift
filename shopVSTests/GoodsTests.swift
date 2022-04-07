@@ -30,7 +30,7 @@ class GoodsTests: XCTestCase {
     func testGetCatalogData() {
         let goods = requestFactory.makeGoodsRequestFactory()
         
-        goods.getCatalogData(pageNumber: 1, categoryId: 123) { [weak self] (response: AFDataResponse<CatalogResult>) in
+        goods.getCatalogData(pageNumber: 1, categoryId: 321) { [weak self] (response: AFDataResponse<CatalogResult>) in
             switch response.result {
             case .success(let catalogResult):
                 if let goods = catalogResult.goods,
@@ -51,7 +51,7 @@ class GoodsTests: XCTestCase {
     func testGetProduct() {
         let goods = requestFactory.makeGoodsRequestFactory()
         
-        goods.getProduct(productId: 123) { [weak self] (response: AFDataResponse<ProductResult>) in
+        goods.getProduct(productId: 111) { [weak self] (response: AFDataResponse<ProductResult>) in
             switch response.result {
             case .success(let productResult):
                 if productResult.result == 1 {

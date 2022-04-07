@@ -21,8 +21,8 @@ class ProfileTests: XCTestCase {
         super.setUp()
         errorParser = ErrorParserStub()
         requestFactory = RequestFactory()
-        let userProfile = UserProfile(name: "Vladimir", lastname: "Sirel" , email: "exit551@ya.ru", creditCard: "1234-5678-9101-1121")
-        user = User(id: 0, login: "exit551", password: "dasd123asd", userProfile: userProfile)
+        let userProfile = UserProfile(name: "Vladimir", lastname: "Sirel" , email: "exit554@ya.ru", gender: "Male", creditCard: "1234-5678-9101-1121", bio: "")
+        user = User(id: 0, login: "exit554", password: "dasd123asd", userProfile: userProfile)
         existUserForEdit = User(id: 123, login: "exit551", password: "dasd123asd", userProfile: userProfile)
     }
     
