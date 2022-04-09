@@ -24,16 +24,24 @@ class UserBasket {
         self.totalSumma = self.basketCaretaker.getTotalSum(of: products)
     }
     
+    func countInBasket(_ product: Product) -> Int {
+        products.filter({ $0.id == product.id }).count
+    }
+    
     func addProduct(_ product: Product) {
         self.products.append(product)
         self.totalSumma += product.price
     }
     
     func removeProduct(_ product: Product) {
-        self.products.removeAll(where: { bascketProduct in
-            bascketProduct.id == product.id
+        let index = self.products.firstIndex(where: { basketProduct in
+            basketProduct.id == product.id
         })
-        self.totalSumma -= product.price
+        
+        if let index = index {
+            self.products.remove(at: index)
+            self.totalSumma -= product.price
+        }
     }
     
     func clearProducts() {

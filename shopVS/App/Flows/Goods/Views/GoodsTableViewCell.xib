@@ -10,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="KGk-i7-Jjw" customClass="GoodsTableViewCell" customModule="shopVS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="GoodsTableViewCell" customModule="shopVS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQL-wi-BzT">
@@ -54,24 +54,52 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="xCD-1T-ceI">
+                        <rect key="frame" x="210" y="157" width="94" height="32"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <connections>
+                            <action selector="changeGoodsInMyCard:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Hwu-at-GuO"/>
+                        </connections>
+                    </stepper>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add/Remove in My card:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Me-vm-4nM">
+                        <rect key="frame" x="16" y="166" width="166" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F75-y3-hUP">
+                        <rect key="frame" x="190" y="166" width="10" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ElZ-JN-Iu0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="780-t4-iRM"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="3Me-vm-4nM" secondAttribute="bottom" constant="5" id="9iw-MV-HWp"/>
                     <constraint firstAttribute="trailing" secondItem="jaP-oI-Bak" secondAttribute="trailing" constant="16" id="Aay-Am-msO"/>
                     <constraint firstItem="lQL-wi-BzT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="HN1-74-Nps"/>
+                    <constraint firstItem="F75-y3-hUP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3Me-vm-4nM" secondAttribute="trailing" constant="8" symbolic="YES" id="IoW-aa-Ryy"/>
                     <constraint firstItem="jaP-oI-Bak" firstAttribute="top" secondItem="ElZ-JN-Iu0" secondAttribute="bottom" constant="16" id="JgI-EA-VyA"/>
                     <constraint firstItem="lQL-wi-BzT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WZR-bb-Cso" secondAttribute="trailing" constant="10" id="OpY-LC-8R1"/>
-                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="jaP-oI-Bak" secondAttribute="bottom" constant="16" id="RBP-Yr-iKu"/>
+                    <constraint firstItem="xCD-1T-ceI" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="V2D-dy-KoW"/>
                     <constraint firstItem="WZR-bb-Cso" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="gtU-fe-AVi"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="F75-y3-hUP" secondAttribute="bottom" constant="5" id="h8N-kx-elR"/>
+                    <constraint firstItem="xCD-1T-ceI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F75-y3-hUP" secondAttribute="trailing" constant="10" id="hWz-JM-P0r"/>
                     <constraint firstItem="jaP-oI-Bak" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="iCy-fz-Ssu"/>
                     <constraint firstAttribute="trailing" secondItem="lQL-wi-BzT" secondAttribute="trailing" constant="16" id="lOo-vV-1Vv"/>
+                    <constraint firstItem="xCD-1T-ceI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="rJP-7n-Lbd"/>
+                    <constraint firstItem="3Me-vm-4nM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="tsD-1W-O3K"/>
                     <constraint firstItem="ElZ-JN-Iu0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="vlE-H9-3FC"/>
                     <constraint firstItem="WZR-bb-Cso" firstAttribute="leading" secondItem="ElZ-JN-Iu0" secondAttribute="trailing" constant="16" id="w7n-9i-cCK"/>
+                    <constraint firstItem="xCD-1T-ceI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jaP-oI-Bak" secondAttribute="bottom" constant="35" id="x0j-Cb-n5d"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
             <connections>
+                <outlet property="basketStepper" destination="xCD-1T-ceI" id="yz6-I1-QVy"/>
+                <outlet property="countInMyCardLabel" destination="F75-y3-hUP" id="Eno-zu-XGH"/>
                 <outlet property="descriptionLabel" destination="jaP-oI-Bak" id="vi4-ZR-Edq"/>
                 <outlet property="iconImageView" destination="ElZ-JN-Iu0" id="Nz1-na-X42"/>
                 <outlet property="nameLabel" destination="WZR-bb-Cso" id="fD4-MO-4iJ"/>
@@ -80,6 +108,11 @@
             <point key="canvasLocation" x="131.8840579710145" y="145.64732142857142"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="ElZ-JN-Iu0">
+            <size key="intrinsicContentSize" width="512" height="512"/>
+        </designable>
+    </designables>
     <resources>
         <image name="mybarcode" width="512" height="512"/>
         <systemColor name="systemIndigoColor">

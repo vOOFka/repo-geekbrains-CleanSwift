@@ -14,3 +14,15 @@ struct Product: Codable {
     let description: String
     var feedbacks: [Feedback?] = []
 }
+
+extension Product: Equatable {
+    static func == (lhs: Product, rhs: Product) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
+extension Product: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}

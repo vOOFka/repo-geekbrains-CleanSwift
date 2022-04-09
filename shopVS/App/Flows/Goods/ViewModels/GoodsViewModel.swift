@@ -31,4 +31,13 @@ final class GoodsViewModel {
             }
         }
     }
+    
+    func updateCellsArrayByMyCard (completion: @escaping () -> Void) {
+        guard let cellsArray = cellsArray?.compactMap(GoodsViewCellModel.self) else {
+            return
+        }
+        let updatedCellArray = cellsArray.compactMap({ GoodsViewCellModel(good: $0.product) })
+        self.cellsArray = .Success(updatedCellArray)
+        completion()
+    }
 }

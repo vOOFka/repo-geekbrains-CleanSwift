@@ -30,7 +30,7 @@ class AuthTests: XCTestCase {
     func testLogin() {
         let auth = requestFactory.makeAuthRequestFactory()
         
-        auth.login(userName: "vOOFka", password: "qwerty123") { [weak self] (response: AFDataResponse<AuthResult>) in
+        auth.login(userName: "Test", password: "qwerty123") { [weak self] (response: AFDataResponse<AuthResult>) in
             switch response.result {
             case .success(let loginResult):
                 if loginResult.result == 1 {
