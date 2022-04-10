@@ -41,8 +41,8 @@
             </TestPlanReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
+            buildForTesting = "NO"
+            buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">

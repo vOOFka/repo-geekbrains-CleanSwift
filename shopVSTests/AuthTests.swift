@@ -13,7 +13,7 @@ class AuthTests: XCTestCase {
     let exectation = XCTestExpectation(description: "AuthTests")
     var errorParser: ErrorParserStub!
     var requestFactory: RequestFactory!
-    var timeout: TimeInterval = 5.0
+    var timeout: TimeInterval = 10.0
     
     override func setUp() {
         super.setUp()
