@@ -43,6 +43,7 @@ class GoodsTableViewController: UITableViewController {
     
     func updateUI() {
         guard let viewModel = viewModel else {
+            Logger.shared.logError("viewModel is nil")
             return
         }
         viewModel.updateCellsArrayByMyCard {
@@ -80,6 +81,7 @@ class GoodsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cellsViewModels = viewModel?.cellsArray else {
+            Logger.shared.logError("viewModels is nil")
             return
         }
         switch cellsViewModels {

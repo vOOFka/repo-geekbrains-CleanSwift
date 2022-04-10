@@ -99,6 +99,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
         let feedbackCell = tableView.dequeueReusableCell(FeedbackTableViewCell.self, for: indexPath)
         
         guard let productViewModel = productViewModel else {
+            Logger.shared.logError("viewModel is nil")
             return cell
         }
         
@@ -108,6 +109,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
             return cell
         case 1:
             guard let cellsArray = feedbacksViewModel?.cellsArray?.compactMap(FeedbackViewCellModel.self) else {
+                Logger.shared.logError("viewModels is nil")
                 return feedbackCell
             }
             if indexPath.row == 0 {
@@ -136,6 +138,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
             guard let productId = self?.productViewModel?.product.id,
                   let feedbacks = self?.feedbacksViewModel?.cellsArray?.compactMap(FeedbackViewCellModel.self)
             else {
+                Logger.shared.logError("viewModel is nil")
                 return
             }
             let feedbackId = feedbacks[(indexPath.row - 1)].id
@@ -152,6 +155,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
 extension ProductDetailsViewController: AddFeedbackButtonDelegate {
     func addFeedbackButtonTap(newFeedback: Feedback) {
         guard let productId = productViewModel?.product.id else {
+            Logger.shared.logError("viewModel is nil")
             return
         }
         feedbacksViewModel?.addFeedbackRequest(productId: productId, newFeedback: newFeedback) { [weak self] in

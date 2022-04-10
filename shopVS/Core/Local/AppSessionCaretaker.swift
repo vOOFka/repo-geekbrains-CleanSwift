@@ -25,12 +25,13 @@ final class AppSessionCaretaker {
     
     func retrieveSessionUser() -> User? {
         guard let data = UserDefaults.standard.data(forKey: key) else {
+            Logger.shared.logError("AppSessionUser is nil")
             return nil
         }
         do {
             return try self.decoder.decode(User.self, from: data)
         } catch {
-            print(error)
+            Logger.shared.logError(error: error)
             return nil
         }
     }

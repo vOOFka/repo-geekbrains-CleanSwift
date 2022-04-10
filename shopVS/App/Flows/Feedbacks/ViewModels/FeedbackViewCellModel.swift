@@ -14,6 +14,7 @@ final class FeedbackViewCellModel {
     
     init?(feedback: Feedback?) {
         guard let feedback = feedback else {
+            Logger.shared.logError("feesback is nil")
             return nil
         }
         self.id = feedback.id
