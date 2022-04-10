@@ -22,12 +22,15 @@ platform :ios do
     # checkout release branch
     #ensure_git_status_clean
 
-    # clear data
-    clear_derived_data
-    xcclean(
-      scheme: "shopVS",
-      xcodeproj: "shopVS.xcodeproj"
-    )
+    #clear data
+  #  clear_derived_data
+  #  xcclean(
+  #    scheme: "shopVS",
+  #    xcodeproj: "shopVS.xcodeproj"
+  #  )
+
+  # run tests
+  run_tests
 
   end
 end
