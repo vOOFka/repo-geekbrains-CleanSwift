@@ -116,12 +116,14 @@ class BasketViewController: UIViewController {
     
     //MARK: - Actions
     @objc func cleanBasketButtonTap() {
+        Logger.shared.logEvent("cleanBasketButtonTap")
         basketViewModel?.cleanBasket(completion: {
             self.updateUI()
         })
     }
     
     @objc func payBasketButtonTap() {
+        Logger.shared.logEvent("payBasketButtonTap")
         basketViewModel?.payBasketRequest { result in
             switch result {
             case .Success(_):

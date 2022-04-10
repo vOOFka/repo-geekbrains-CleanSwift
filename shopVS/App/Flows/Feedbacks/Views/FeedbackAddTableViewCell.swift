@@ -66,6 +66,7 @@ final class FeedbackAddTableViewCell: UITableViewCell {
         else {
             return
         }
+        Logger.shared.logEvent("addFeedbackButtonTap")
         let newFeedback = Feedback(id: 0, userId: currentUser.id, comment: comment)
         delegate?.addFeedbackButtonTap(newFeedback: newFeedback)
     }

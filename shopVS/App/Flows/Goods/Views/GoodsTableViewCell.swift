@@ -62,10 +62,12 @@ final class GoodsTableViewCell: UITableViewCell {
             UserBasket.shared.addProduct(viewModel.product)
             countInMyCard += 1
             countInMyCardLabel.text = String(countInMyCard)
+            Logger.shared.logEvent("Added \(viewModel.product.name) in mycard \(countInMyCard)")
         } else {
             UserBasket.shared.removeProduct(viewModel.product)
             countInMyCard -= 1
             countInMyCardLabel.text = String(countInMyCard)
+            Logger.shared.logEvent("Remove \(viewModel.product.name) from mycard \(countInMyCard)")
         }
     }
 }

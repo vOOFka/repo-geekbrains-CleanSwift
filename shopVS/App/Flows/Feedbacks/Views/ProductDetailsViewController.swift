@@ -148,6 +148,7 @@ extension ProductDetailsViewController: UITableViewDataSource, UITableViewDelega
     }
 }
 
+//MARK: - Actions, AddFeedbackButtonDelegate
 extension ProductDetailsViewController: AddFeedbackButtonDelegate {
     func addFeedbackButtonTap(newFeedback: Feedback) {
         guard let productId = productViewModel?.product.id else {

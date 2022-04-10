@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import Firebase
 
 class CustomDecodableSerializer<T: Decodable>: DataResponseSerializerProtocol {
     private let errorParser: AbstractErrorParser
@@ -25,6 +26,7 @@ class CustomDecodableSerializer<T: Decodable>: DataResponseSerializerProtocol {
             return value
         } catch {
             let customError = errorParser.parse(error)
+            Crashlytics.crashlytics().record(error: customError)
             throw customError
         }
     }

@@ -10,6 +10,8 @@
 		F40C06A62802DF3C00290D8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F40C06A52802DF3C00290D8B /* GoogleService-Info.plist */; };
 		F40C06A92802DFAD00290D8B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F40C06A82802DFAD00290D8B /* FirebaseAnalytics */; };
 		F40C06AB2802DFAD00290D8B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F40C06AA2802DFAD00290D8B /* FirebaseCrashlytics */; };
+		F40C06B32803012900290D8B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40C06B22803012900290D8B /* Logger.swift */; };
+		F40C06B528030D3400290D8B /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40C06B428030D3400290D8B /* Dictionary+Ext.swift */; };
 		F4137E2127F9948700361FF2 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = F4137E2027F9948700361FF2 /* PinLayout */; };
 		F4137E2427F99BEF00361FF2 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */; };
 		F4137E2627F9AB9900361FF2 /* FeedbackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */; };
@@ -100,6 +102,8 @@
 
 /* Begin PBXFileReference section */
 		F40C06A52802DF3C00290D8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F40C06B22803012900290D8B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F40C06B428030D3400290D8B /* Dictionary+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
 		F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewCellModel.swift; sourceTree = "<group>"; };
 		F4137E2727F9ACE200361FF2 /* FeedbackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackTableViewCell.swift; sourceTree = "<group>"; };
@@ -452,9 +456,11 @@
 			isa = PBXGroup;
 			children = (
 				F471710D27D768C900552884 /* Array+Ext.swift */,
+				F40C06B428030D3400290D8B /* Dictionary+Ext.swift */,
 				F463887227F0EE2C003E38CC /* UIViewController+Ext.swift */,
 				F47E8DB227F85F6E002AAE17 /* Reusable.swift */,
 				F4137E2D27F9D00F00361FF2 /* Result.swift */,
+				F40C06B22803012900290D8B /* Logger.swift */,
 			);
 			path = "Utils&Helpers";
 			sourceTree = "<group>";
@@ -764,6 +770,7 @@
 				F49AAFD327BC258400BCB9EF /* RequestRouter.swift in Sources */,
 				F49AAFD127BC257100BCB9EF /* AbstractRequestFactory.swift in Sources */,
 				F4CFDBC327BD6BA4000DA598 /* SceneDelegate.swift in Sources */,
+				F40C06B528030D3400290D8B /* Dictionary+Ext.swift in Sources */,
 				F463887A27F0FFE6003E38CC /* AppService.swift in Sources */,
 				F47E8DB827F86010002AAE17 /* GoodsTableViewCell.swift in Sources */,
 				F4186C1127C27BCC007F5F45 /* ProductResult.swift in Sources */,
@@ -792,6 +799,7 @@
 				F41B186327B79BB60089824E /* AppDelegate.swift in Sources */,
 				F44FC29A27BD6D5700367585 /* ProfileResult.swift in Sources */,
 				F49AAFCB27BC250F00BCB9EF /* AbstractErrorParser.swift in Sources */,
+				F40C06B32803012900290D8B /* Logger.swift in Sources */,
 				F4137E2827F9ACE200361FF2 /* FeedbackTableViewCell.swift in Sources */,
 				F47E8DB327F85F6E002AAE17 /* Reusable.swift in Sources */,
 				F463887627F0F206003E38CC /* AppSession.swift in Sources */,

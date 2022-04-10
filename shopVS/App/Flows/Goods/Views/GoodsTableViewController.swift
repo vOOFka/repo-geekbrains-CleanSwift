@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class GoodsTableViewController: UITableViewController {
     // MARK: - Public properties
@@ -93,20 +94,24 @@ class GoodsTableViewController: UITableViewController {
     
     //MARK: - Actions
     @IBAction func profileButtonTap(_ sender: UIBarButtonItem) {
+        Logger.shared.logEvent("profileButtonTap")
         appService.showModalScene(viewController: self, with: .userProfile)
     }
     
     @IBAction func refreshButtonTap(_ sender: UIBarButtonItem) {
+        Logger.shared.logEvent("refreshButtonTap")
         viewModel?.update(pageNumber: pageNumber, categoryId: categoryId) { [weak self] in
             self?.tableView.reloadData()
         }
     }
     
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
+        Logger.shared.logEvent("exitButtonTap")
         dismiss(animated: true)
     }
     
     @IBAction func crashButton(_ sender: UIBarButtonItem) {
+        Crashlytics.crashlytics().log("Activated application crash using the crash button.")
         let numbers = [0]
         let _ = numbers[1]
     }

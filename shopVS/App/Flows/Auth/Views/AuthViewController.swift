@@ -83,10 +83,12 @@ final class AuthViewController: UIViewController {
     
     // MARK: - Actions    
     @IBAction private func signUpButtonTap(_ sender: Any) {
+        Logger.shared.logEvent("signUpButtonTap")
         appService.showModalScene(viewController: self, with: .userProfile)
     }
     
     @IBAction private func enterButtonTap(_ sender: Any) {
+        Logger.shared.logEvent("enterButtonTap")
         guard let login = loginTextField.text,
               let password = passwordTextField.text,
               !login.isEmpty,
@@ -107,6 +109,7 @@ final class AuthViewController: UIViewController {
     }
     
     @IBAction func exitButtonTap(_ sender: Any) {
+        Logger.shared.logEvent("exitButtonTap")
         viewModel?.logoutRequest { [weak self] result in
             guard let self = self else { return }
             switch result {
