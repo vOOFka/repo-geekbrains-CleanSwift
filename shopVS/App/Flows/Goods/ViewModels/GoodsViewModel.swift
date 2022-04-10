@@ -34,7 +34,7 @@ final class GoodsViewModel {
     
     func updateCellsArrayByMyCard (completion: @escaping () -> Void) {
         guard let cellsArray = cellsArray?.compactMap(GoodsViewCellModel.self) else {
-            Logger.shared.logError("viewModel is nil")
+            Logger.shared.logError("viewModel is nil", param: ["file" : #file, "func" : #function])
             return
         }
         let updatedCellArray = cellsArray.compactMap({ GoodsViewCellModel(good: $0.product) })

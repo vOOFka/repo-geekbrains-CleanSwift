@@ -25,7 +25,7 @@ final class AppSessionCaretaker {
     
     func retrieveSessionUser() -> User? {
         guard let data = UserDefaults.standard.data(forKey: key) else {
-            Logger.shared.logError("AppSessionUser is nil")
+            Logger.shared.logError("AppSessionUser is nil", param: ["file" : #file, "func" : #function])
             return nil
         }
         do {

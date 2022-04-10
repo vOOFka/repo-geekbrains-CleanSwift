@@ -10,24 +10,15 @@ import Firebase
 
 class Logger {
     static let shared = Logger()
-    var defaultParameters: [String : Any] = [
-        "file" : #file,
-        "func" : #function,
-        "line" : #line
-    ]
     
     private init() { }
     
     func logError(_ name: String? = nil, error: Error? = nil, param: [String: Any]? = nil) {
-        let allParameters = defaultParameters.append(anotherDict: param ?? [:])
-        let customError = error ?? NSError(domain: name ?? "", code: -123, userInfo: allParameters)
-        
+        let customError = error ?? NSError(domain: name ?? "", code: -123, userInfo: param)        
         Crashlytics.crashlytics().record(error: customError)
     }
     
     func logEvent(_ event: String, param: [String: Any]? = nil) {
-        let allParameters = defaultParameters.append(anotherDict: param ?? [:])
-        
-        Analytics.logEvent(event, parameters: allParameters)
+        Analytics.logEvent(event, parameters: param)
     }
 }

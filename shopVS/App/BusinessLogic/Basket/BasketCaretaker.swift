@@ -31,7 +31,7 @@ final class BasketCaretaker {
         do {
             return try self.decoder.decode([Product].self, from: data)
         } catch {
-            Logger.shared.logError(error: error)
+            Logger.shared.logError(error: error, param: ["file" : #file, "func" : #function])
             return []
         }
     }

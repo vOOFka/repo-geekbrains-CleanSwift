@@ -55,7 +55,7 @@ final class GoodsTableViewCell: UITableViewCell {
         guard let viewModel = viewModel,
               0...10 ~= value
         else {
-            Logger.shared.logError("viewModel is nil")
+            Logger.shared.logError("viewModel is nil", param: ["file" : #file, "func" : #function])
             return
         }        
         

@@ -86,7 +86,7 @@ class BasketViewController: UIViewController {
     
     func updateUI() {
         guard let basketViewModel = basketViewModel else {
-            Logger.shared.logError("viewModel is nil")
+            Logger.shared.logError("viewModel is nil", param: ["file" : #file, "func" : #function])
             return
         }
         basketViewModel.updateBasket {
@@ -146,7 +146,7 @@ extension BasketViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(BasketGoodsTableViewCell.self, for: indexPath)
         guard let cellsViewModels = basketViewModel?.cellsArray else {
-            Logger.shared.logError("viewModels is nil")
+            Logger.shared.logError("viewModels is nil", param: ["file" : #file, "func" : #function])
             return cell
         }
         cell.config(with: cellsViewModels[indexPath.row])
