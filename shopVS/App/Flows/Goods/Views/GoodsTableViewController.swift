@@ -101,7 +101,13 @@ class GoodsTableViewController: UITableViewController {
             self?.tableView.reloadData()
         }
     }
+    
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
+    }
+    
+    @IBAction func crashButton(_ sender: UIBarButtonItem) {
+        let numbers = [0]
+        let _ = numbers[1]
     }
 }
