@@ -16,18 +16,18 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
+  desc "My first line"
   lane :custom_lane do
     
     # checkout release branch
     #ensure_git_status_clean
 
     #clear data
-  #  clear_derived_data
-  #  xcclean(
-  #    scheme: "shopVS",
-  #    xcodeproj: "shopVS.xcodeproj"
-  #  )
+    clear_derived_data
+    xcclean(
+      scheme: "shopVS",
+      xcodeproj: "shopVS.xcodeproj"
+    )
 
   # run tests
   run_tests
