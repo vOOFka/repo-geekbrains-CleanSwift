@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40C06A62802DF3C00290D8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F40C06A52802DF3C00290D8B /* GoogleService-Info.plist */; };
 		F4137E2127F9948700361FF2 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = F4137E2027F9948700361FF2 /* PinLayout */; };
 		F4137E2427F99BEF00361FF2 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */; };
 		F4137E2627F9AB9900361FF2 /* FeedbackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */; };
@@ -96,6 +97,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F40C06A52802DF3C00290D8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewCellModel.swift; sourceTree = "<group>"; };
 		F4137E2727F9ACE200361FF2 /* FeedbackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackTableViewCell.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				F41B187027B79BB80089824E /* Info.plist */,
+				F40C06A52802DF3C00290D8B /* GoogleService-Info.plist */,
 			);
 			path = Environments;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 			files = (
 				F41B186F27B79BB80089824E /* LaunchScreen.storyboard in Resources */,
 				F41B186C27B79BB80089824E /* Assets.xcassets in Resources */,
+				F40C06A62802DF3C00290D8B /* GoogleService-Info.plist in Resources */,
 				F47E8DB927F86010002AAE17 /* GoodsTableViewCell.xib in Resources */,
 				F41B186A27B79BB60089824E /* Main.storyboard in Resources */,
 			);
