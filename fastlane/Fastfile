@@ -32,5 +32,11 @@ platform :ios do
   # run tests
   run_tests
 
+  # make screenshots
+  capture_ios_screenshots
+
+  lane :project do
+  increment_build_number
+
   end
 end

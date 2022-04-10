@@ -15,6 +15,7 @@ class shopVSUITests: XCTestCase {
         continueAfterFailure = false
         
         app = XCUIApplication()
+        setupSnapshot(app)
         app.launch()
         scrollViewsQuery = app.scrollViews
     }
@@ -48,13 +49,16 @@ class shopVSUITests: XCTestCase {
     }
     
     func testLoginSuccess() throws {
+        snapshot("LoginScreen")
         enterAuthorizationData(login: "Test", password: "qwerty123")
         let catalogNavigationLabel = app.navigationBars["Catalog"].staticTexts["Catalog"].label
+        snapshot("CatalogScreen")
         XCTAssertEqual(catalogNavigationLabel, "Catalog")
     }
     
     func testLoginFail() throws {
         enterAuthorizationData(login: "admin", password: "admin")
+        snapshot("LoginFailScreen")
         app.alerts["Error"].scrollViews.otherElements.buttons["Close"].tap()
     }
 }
