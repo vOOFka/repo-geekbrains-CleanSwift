@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F40C06A62802DF3C00290D8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F40C06A52802DF3C00290D8B /* GoogleService-Info.plist */; };
+		F40C06A92802DFAD00290D8B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F40C06A82802DFAD00290D8B /* FirebaseAnalytics */; };
+		F40C06AB2802DFAD00290D8B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = F40C06AA2802DFAD00290D8B /* FirebaseCrashlytics */; };
 		F4137E2127F9948700361FF2 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = F4137E2027F9948700361FF2 /* PinLayout */; };
 		F4137E2427F99BEF00361FF2 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2327F99BEF00361FF2 /* ProductDetailsViewController.swift */; };
 		F4137E2627F9AB9900361FF2 /* FeedbackViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4137E2527F9AB9800361FF2 /* FeedbackViewCellModel.swift */; };
@@ -179,7 +181,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4137E2127F9948700361FF2 /* PinLayout in Frameworks */,
+				F40C06AB2802DFAD00290D8B /* FirebaseCrashlytics in Frameworks */,
 				F49AAFC827BC24A100BCB9EF /* Alamofire in Frameworks */,
+				F40C06A92802DFAD00290D8B /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +599,8 @@
 			packageProductDependencies = (
 				F49AAFC727BC24A100BCB9EF /* Alamofire */,
 				F4137E2027F9948700361FF2 /* PinLayout */,
+				F40C06A82802DFAD00290D8B /* FirebaseAnalytics */,
+				F40C06AA2802DFAD00290D8B /* FirebaseCrashlytics */,
 			);
 			productName = shopVS;
 			productReference = F41B185F27B79BB60089824E /* shopVS.app */;
@@ -671,6 +677,7 @@
 			packageReferences = (
 				F49AAFC627BC24A100BCB9EF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F4137E1F27F9948700361FF2 /* XCRemoteSwiftPackageReference "PinLayout" */,
+				F40C06A72802DFAD00290D8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F41B186027B79BB60089824E /* Products */;
 			projectDirPath = "";
@@ -1141,6 +1148,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F40C06A72802DFAD00290D8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 8.9.1;
+			};
+		};
 		F4137E1F27F9948700361FF2 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/layoutBox/PinLayout.git";
@@ -1160,6 +1175,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F40C06A82802DFAD00290D8B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F40C06A72802DFAD00290D8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		F40C06AA2802DFAD00290D8B /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F40C06A72802DFAD00290D8B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		F4137E2027F9948700361FF2 /* PinLayout */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F4137E1F27F9948700361FF2 /* XCRemoteSwiftPackageReference "PinLayout" */;
