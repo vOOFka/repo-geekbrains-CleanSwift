@@ -47,6 +47,7 @@ final class FeedbackTableViewCell: UITableViewCell {
         self.viewModel = feedbackViewCellModel
         
         guard let viewModel = viewModel else {
+            Logger.shared.logError("viewModel is nil", param: ["file" : #file, "func" : #function])
             return
         }
         

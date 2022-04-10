@@ -136,6 +136,7 @@ final class UserProfileViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .Success(_):
+                Logger.shared.logEvent("SignUp new user")
                 self.dismiss(animated: true)
             case .Failure(let error):
                 self.showError(message: error)

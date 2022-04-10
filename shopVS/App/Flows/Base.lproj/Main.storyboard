@@ -202,11 +202,20 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" title="Refresh" image="arrow.clockwise.icloud" catalog="system" id="JUP-rd-mIF">
-                            <connections>
-                                <action selector="refreshButtonTap:" destination="9DD-FH-QWq" id="OTP-N1-I8Z"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Refresh" image="arrow.clockwise.icloud" catalog="system" id="JUP-rd-mIF">
+                                <connections>
+                                    <action selector="refreshButtonTap:" destination="9DD-FH-QWq" id="OTP-N1-I8Z"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Crash" id="4vV-ei-wSN">
+                                <imageReference key="image" image="power.circle" catalog="system" symbolScale="large"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <connections>
+                                    <action selector="crashButton:" destination="9DD-FH-QWq" id="MEh-Qs-ntT"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xnV-8d-2ry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -522,6 +531,7 @@
         <image name="arrow.clockwise.icloud" catalog="system" width="128" height="88"/>
         <image name="cube.transparent" catalog="system" width="128" height="124"/>
         <image name="person.text.rectangle" catalog="system" width="128" height="93"/>
+        <image name="power.circle" catalog="system" width="128" height="121"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <image name="tray.full" catalog="system" width="128" height="88"/>
         <systemColor name="labelColor">
@@ -535,6 +545,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

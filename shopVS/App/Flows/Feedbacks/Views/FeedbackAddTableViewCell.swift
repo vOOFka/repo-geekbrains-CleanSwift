@@ -64,8 +64,10 @@ final class FeedbackAddTableViewCell: UITableViewCell {
         guard let currentUser = AppSession.shared.currentUser,
               let comment = commentTextView.text
         else {
+            Logger.shared.logError("viewModel is nil", param: ["file" : #file, "func" : #function])
             return
         }
+        Logger.shared.logEvent("addFeedbackButtonTap")
         let newFeedback = Feedback(id: 0, userId: currentUser.id, comment: comment)
         delegate?.addFeedbackButtonTap(newFeedback: newFeedback)
     }

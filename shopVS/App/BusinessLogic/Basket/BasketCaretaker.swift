@@ -25,17 +25,18 @@ final class BasketCaretaker {
     
     func retrieveProducts() -> [Product] {
         guard let data = UserDefaults.standard.data(forKey: key) else {
+            Logger.shared.logEvent("Products is empty")
             return []
         }
         do {
             return try self.decoder.decode([Product].self, from: data)
         } catch {
-            print(error)
+            Logger.shared.logError(error: error, param: ["file" : #file, "func" : #function])
             return []
         }
     }
     
     func getTotalSum(of products: [Product]) -> Int {
-        return products.map({$0.price}).reduce(0, +)
+        products.map({$0.price}).reduce(0, +)
     }
 }

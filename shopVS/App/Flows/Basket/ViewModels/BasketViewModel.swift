@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 final class BasketViewModel {
     // MARK: - Private properties
@@ -45,9 +46,13 @@ final class BasketViewModel {
                         self.payResult = .Success(basketResult)
                         UserBasket.shared.clearProducts()
                     } else {
-                        self.payResult = .Failure(basketResult.errorMessage ?? "Unknow error, please try again later.")
+                        let errorMessage = basketResult.errorMessage ?? "Unknow error, please try again later."
+                        let param = ["totalSumma" : self.totalSumma]
+                        Logger.shared.logEvent("basketResult", param: param)
+                        self.payResult = .Failure(errorMessage)
                     }
                 case .failure(let error):
+                    Crashlytics.crashlytics().record(error: error)
                     self.payResult = .Failure(error.localizedDescription)
                 }
                 DispatchQueue.main.async {

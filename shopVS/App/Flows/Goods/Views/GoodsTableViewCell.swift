@@ -55,6 +55,7 @@ final class GoodsTableViewCell: UITableViewCell {
         guard let viewModel = viewModel,
               0...10 ~= value
         else {
+            Logger.shared.logError("viewModel is nil", param: ["file" : #file, "func" : #function])
             return
         }        
         
@@ -62,10 +63,12 @@ final class GoodsTableViewCell: UITableViewCell {
             UserBasket.shared.addProduct(viewModel.product)
             countInMyCard += 1
             countInMyCardLabel.text = String(countInMyCard)
+            Logger.shared.logEvent("Added \(viewModel.product.name) in mycard \(countInMyCard)")
         } else {
             UserBasket.shared.removeProduct(viewModel.product)
             countInMyCard -= 1
             countInMyCardLabel.text = String(countInMyCard)
+            Logger.shared.logEvent("Remove \(viewModel.product.name) from mycard \(countInMyCard)")
         }
     }
 }

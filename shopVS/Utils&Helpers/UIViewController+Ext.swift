@@ -12,6 +12,8 @@ extension UIViewController {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let closeAction = UIAlertAction(title: "Close", style: .default, handler: handler)
         
+        Logger.shared.logEvent(message, param: ["showErrorTitle" : title ?? ""])
+        
         alertViewController.addAction(closeAction)
         present(alertViewController, animated: true)
     }
